@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Despliega Intro en Jelastic</title>
+
+    <!-- Ícono para la página web. -->
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+
+    <!-- Color de la barra de navegación de Chrome. -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/mi-diapo.js"></script>
+  </head>
+  <body class="vista">
+    <img is="mi-diapo" data-url="img/deploy_jelastic/" data-total="39"
+      data-antes="intro.html">
+  </body>
+</html>

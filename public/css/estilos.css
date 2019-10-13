@@ -10,6 +10,7 @@ button,
 a,
 select,
 textarea {
+  color: var(--color-letra);
   font-family: sans-serif;
 }
 
