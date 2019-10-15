@@ -36,6 +36,7 @@ self.addEventListener("install",
     // Realiza la instalación: carga los archivos requeridos en la caché.
     evt.waitUntil(cargaCache());
   });
+// Toma de la caché archivos solicitados. Los otros son descargados.
 self.addEventListener("fetch",
   /** @param {FetchEvent} evt */
   evt => {
