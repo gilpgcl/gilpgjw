@@ -19,6 +19,8 @@ const ARCHIVOS = [
   "src/intro/web/WEB-INF/web.xml",
   "src/intro/web/index.html",
   "src/intro/generado.html",
+  "bd_bd_sql.html",
+  "bd.html",
   "favicon.ico",
   "forma_controlador.html",
   "forma_CtrlSaludo_java.html",

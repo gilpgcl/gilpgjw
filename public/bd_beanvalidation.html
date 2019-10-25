@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bean Validation</title>
+
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+    <!-- Ícono para la página web. -->
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+
+    <!-- Color de la barra de navegación de Chrome. -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style type="text/css">
+      dt {
+        font-family: monospace
+      }
+    </style>
+  </head>
+  <body class="vista">
+    <header>
+      <div class="herramientas">
+        &lt;&nbsp;<a href="bd_payara.html">BD en Payara</a>
+        <span class="divisor"></span>
+        <a href="bd.html">BD</a> |
+      </div>
+      <h1>Bean Validation</h1>
+    </header>
+    <div class="principal">
+      <h2>Configuración de Mensajes</h2>
+      <p>
+        Para cambiar los mensajes hay que crear un archivo que se llame
+        <dfn>ValidationMessages.properties</dfn> en paquete default de
+        <em>Source Packages</em>. En él pones los valores que más adelante
+        aparecen para messages. Por ejemplo:
+      </p>
+      <code>
+        javax.validation.constraints.NotNull.message=Falta el valor.<br>
+        javax.validation.constraints.Min.message=El valor mínimo es: {value}.
+        <br>
+        mimensaje=El texto debe tener de {min} a {max} caracteres.<br>
+      </code>
+      <p>
+        Si quieres que el valor de message se busque en el archivo, lo tienes
+        que poner entre llaves. Por ejemplo:
+      </p>
+      <code>
+        @Size(min = 2, max = 15, message="{mimensaje}")<br/>
+        String gg;
+      </code>
+      <p>
+        Cuando pones el mensaje sin llaves, se toma directamente de la anotación
+        sin buscarlo en el archivo. Por ejemplo:
+      </p>
+      <code>
+        @Size(min = 2, message="Debe tener al menos {min} caracteres.")<br/>
+        String qk;
+      </code>
+      <h2>Restricciones Predefinidas por Bean Validation</h2>
+      <dl>
+        <dt>
+          <strong>@Null</strong>(message="{javax.validation.constraints.Null.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          El elemento anotado debe ser nulo. El valor de message se puede
+          configurar en un archivo especial usando el texto entre llaves, o
+          bien, sustituirse por el mensaje que tu quieras.
+        </dd>
+
+        <dt><strong>@Null.List</strong>({Lista de @Null})</dt>
+        <dd>Lista de anotaciones @Null.</dd>
+
+        <dt>
+          <strong>@NotNull</strong>(message="{javax.validation.constraints.NotNull.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>El elemento anotado no debe ser nulo.</dd>
+
+        <dt><strong>@NotNull.List</strong>({Lista de @NotNull})</dt>
+        <dd>Lista de anotaciones @NotNull.</dd>
+
+        <dt>
+          <strong>@AssertTrue</strong>(message="{javax.validation.constraints.AssertTrue.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>El elemento anotado debe ser verdadero, tipo boolean o Boolean.</dd>
+
+        <dt><strong>@AssertTrue.List</strong>({Lista de @AssertTrue})</dt>
+        <dd>Lista de anotaciones @AssertTrue.</dd>
+
+        <dt>
+          <strong>@AssertFalse</strong>(message="{javax.validation.constraints.AssertFalse.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>El elemento anotado debe ser falso, tipo boolean o Boolean.</dd>
+
+        <dt><strong>@AssertFalse.List</strong>({Lista de @AssertFalse})</dt>
+        <dd>Lista de anotaciones @AssertFalse.</dd>
+
+        <dt>
+          <strong>@Min</strong>(value=valorLongMínino,
+          message="{javax.validation.constraints.Min.message}",
+          groups ={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Valor mínimo del elemento anotado. El tipo de value debe ser long,
+          pero el elemento anotado puede ser
+          <ul>
+            <li>BigDecimal</li>
+            <li>BigInteger</li>
+            <li>byte o Byte</li>
+            <li>short o Short</li>
+            <li>int o Integer</li>
+            <li>long o Long</li>
+            <li>
+              double, Double, float y Float no se soportan debido a errores de
+              redondeo, pero algunos proveedores pueden implementarlo de alguna
+              forma aproximada.
+            </li>
+          </ul>
+        </dd>
+
+        <dt><strong>@Min.List</strong>({Lista de @Min})</dt>
+        <dd>Lista de anotaciones @Min.</dd>
+
+        <dt>
+          <strong>@Max</strong>(value=valorLongMáximo,
+          message="{javax.validation.constraints.Max.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Valor máximo del elemento anotado. El tipo de value debe ser long,
+          pero el elemento anotado puede ser
+          <ul>
+            <li>BigDecimal</li>
+            <li>BigInteger</li>
+            <li>byte o Byte</li>
+            <li>short o Short</li>
+            <li>int o Integer</li>
+            <li>long o Long</li>
+            <li>
+              double, Double, float y Float no se soportan debido a errores de
+              redondeo, pero algunos proveedores pueden implementarlo de alguna
+              forma aproximada.
+            </li>
+          </ul>
+        </dd>
+
+        <dt><strong>@Max.List</strong>({Lista de @Max})</dt>
+        <dd>Lista de anotaciones @Max.</dd>
+
+        <dt>
+          <strong>@DecimalMin</strong>(value=valorStringMáximoEnFormatoBigDecimal,
+          message="{javax.validation.constraints.DecimalMin.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Valor mínimo del elemento anotado. El tipo de value debe ser long,
+          pero el elemento anotado puede ser
+          <ul>
+            <li>BigDecimal</li>
+            <li>BigInteger</li>
+            <li>byte o Byte</li>
+            <li>short o Short</li>
+            <li>int o Integer</li>
+            <li>long o Long</li>
+            <li>
+              double, Double, float y Float no se soportan debido a errores de
+              redondeo, pero algunos proveedores pueden implementarlo de alguna
+              forma aproximada.
+            </li>
+          </ul>
+        </dd>
+
+        <dt><strong>@DecimalMin.List</strong>({Lista de @DecimalMin})</dt>
+        <dd>Lista de anotaciones @DecimalMin.</dd>
+
+        <dt>
+          <strong>@DecimalMax</strong>(value=valorStringMínimoEnFormatoBigDecimal,
+          message="{javax.validation.constraints.DecimalMax.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Valor máximo del elemento anotado. El tipo de value debe ser String en
+          el formato definido por la clase BigDecimal, pero el elemento anotado
+          puede ser
+          <ul>
+            <li>BigDecimal</li>
+            <li>BigInteger</li>
+            <li>byte o Byte</li>
+            <li>short o Short</li>
+            <li>int o Integer</li>
+            <li>long o Long</li>
+            <li>
+              double, Double, float y Float no se soportan debido a errores de
+              redondeo, pero algunos proveedores pueden implementarlo de alguna
+              forma aproximada.
+            </li>
+          </ul>
+        </dd>
+
+        <dt><strong>@DecimalMax.List</strong>({Lista de @DecimalMax})</dt>
+        <dd>Lista de anotaciones @DecimalMax.</dd>
+
+        <dt>
+          <strong>@Size</strong>(min=longitudMínimaInt, max="longitudMáximaInt",
+          message="{javax.validation.constraints.Size.message}",
+          groups ={clase1, clase2}, payload={clase1,clase2}).
+        </dt>
+        <dd>
+          Longitudes mínima y máxima del elemento anotado. El tipo de min y max
+          debe ser int. La longitud se calcula de la siguiente forma:
+          <dl>
+            <dt>String</dt>
+            <dd>Usando el método length() - “hola”.length()</dd>
+
+            <dt>Arreglo(int a[] o String b[], etc)</dt>
+            <dd>usando la constante length – a.length</dd>
+
+            <dt>Collection (Set, ArrayList, etc)</dt>
+            <dd>usando el método size()</dd>
+
+            <dd>Map</dd>
+            <dd>usando el método size()</dd>
+          </dl>
+        </dd>
+
+        <dt><strong>@Size.List</strong>({Lista de @Size})</dt>
+        <dd>Lista de anotaciones @Size.</dd>
+
+        <dt>
+          <strong>@Digits</strong>(integer=númeroMáximoDeDígitosEnteros,
+          fraction=númeroMáximoDeDígitosDecimales,
+          message="{javax.validation.constraints.Digits.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Control de cifras del elemento anotado. Los tipos de integer y
+          fraction
+          deben ser int. El valor anotado puede ser:
+          <ul>
+            <li>BigDecimal</li>
+            <li>BigInteger</li>
+            <li>byte o Byte</li>
+            <li>short o Short</li>
+            <li>int o Integer</li>
+            <li>long o Long</li>
+            <li>No aplica para double, Double, float y Float.</li>
+          </ul>
+        </dd>
+
+        <dt><strong>@Digits.List</strong>({Lista de @Digits})</dt>
+        <dd>Lista de anotaciones @Digits.</dd>
+
+        <dt>
+          <strong>@Past</strong>(message="{javax.validation.constraints.Past.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          El elemento anotado debe una fecha del pasado, tipo java.util.Date o
+          java.util.Calendar usando el current Timezone .
+        </dd>
+
+        <dt><strong>@Past.List</strong>({Lista de @Past})</dt>
+        <dd>Lista de anotaciones @Past.</dd>
+
+        <dt>
+          <strong>@Future</strong>(message="{javax.validation.constraints.Future.message}",
+          groups={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          El elemento anotado debe una fecha del futuro, tipo java.util.Date o
+          java.util.Calendar usando el current Timezone.
+        </dd>
+
+        <dt><strong>@Future.List</strong>({Lista de @Future})</dt>
+        <dd>Lista de anotaciones @Future.</dd>
+
+        <dt>
+          <strong>@Pattern</strong>(regexp=expresiónRegularString,
+          flags={banderas},
+          message="{javax.validation.constraints.Pattern.message}",
+          groups ={clase1, clase2}, payload={clase1,clase2})
+        </dt>
+        <dd>
+          Ver <em>java.util.regex.Pattern</em>. El elemento anotado debe
+          concordar
+          con una expresión regular. El tipo de regexp debe ser String, al igual
+          que el elemento anotado. El valor de flags es una arrego de los
+          siguientes valores:
+          <dl>
+            <dt>Pattern.Flags.UNIX_LINES</dt>
+            <dd>Habilita el modo de línea de UNIX</dd>
+
+            <dt>Pattern.Flags.CASE_INSENSITIVE</dt>
+            <dd>No distingue mayúsculas de minúsculas</dd>
+
+            <dt>Pattern.Flags.COMMENTS</dt>
+            <dd>Utiliza espacios y comentarios en la expresión</dd>
+
+            <dt>Pattern.Flags.MULTILINE</dt>
+            <dd>Habilita el modo multilínea</dd>
+
+            <dt>Pattern.Flags.DOTALL</dt>
+            <dd>Habilita el modo dotall</dd>
+
+            <dt>Pattern.Flags.UNICODE_CASE</dt>
+            <dd>Activa Unicode-aware case folding</dd>
+
+            <dt>Pattern.Flags.CANON_EQ</dt>
+            <dd>Habilita la equivalencia canónica</dd>
+          </dl>
+        </dd>
+
+        <dt><strong>@Pattern.List</strong> ({Lista de @Pattern})</dt>
+        <dd>Lista de anotaciones @Pattern.</dd>
+      </dl>
+  </body>
+</html>

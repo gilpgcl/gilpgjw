@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Conexión a Bases de Datos en Payara</title>
+
+    <!-- Ícono para la página web. -->
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+
+    <!-- Color de la barra de navegación de Chrome. -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body class="vista">
+    <header>
+      <div class="herramientas">
+        &lt;&nbsp;<a href="bd_bd_sql.html">bd.sql</a>
+        <span class="divisor"></span>
+        <a href="bd.html">BD</a> |
+        <a href="bd_beanvalidation.html">Bean Validation</a>&nbsp;&gt;
+      </div>
+      <h1>Conexión a Bases de Datos en Payara</h1>
+    </header>
+    <div class="principal">
+      <ol>
+        <li>Desde Netbeans selecciona la pestaña <q>Services</q></li>
+        <li>Abre la rama <q>Servers</q></li>
+        <li>Clic derecho en <q>Payara Server</q></li>
+        <li>Selecciona <q>Start</q></li>
+        <li>
+          Cuando el servidor haya levantado, haz clic derecho otra vez en
+          <q>Payara Server</q>
+        </li>
+        <li>Selecciona <q>View Domain Admin Console</q></li>
+        <li>
+          Cuando abre la consola de Payara, en el árbol de la izquierda
+          selecciona la rama
+          <q>Resources &gt; JDBC &gt; JDBC Connection Pools</q>
+        </li>
+        <li>Clic en <q>New&hellip;</q></li>
+        <li>
+          Introduce los siguientes datos:
+          <dl>
+            <dt>Pool Name</dt>
+            <dd>pruebas</dd>
+            <dt>Resource Type</dt>
+            <dd>javax.sql.DataSource</dd>
+            <dt>Database Driver Vendor</dt>
+            <dd>MySql</dd>
+          </dl>
+          Clic en <q>Next</q> arriba a la derecha.
+        </li>
+        <li>
+          En la página 2, el valor de <q>Datasource Classname</q> debe ser
+          <q>com.mysql.jdbc.jdbc2.optional.MysqlDataSource</q>.
+        </li>
+        <li>Activa la opción <q>Enabled</q> de <q>Ping</q>.</li>
+        <li>
+          Avanza hasta <q>Additional Properties</q> y llena los siguientes
+          datos, de acuerdo a la configuración de la base de datos.
+          <dl>
+            <dt>user</dt>
+            <dd>pasausu</dd>
+            <dt>databaseName</dt>
+            <dd>pasabd</dd>
+            <dt>password</dt>
+            <dd>pasapass</dd>
+            <dt>serverName</dt>
+            <dd>localhost</dd>
+            <dt>portNumber</dt>
+            <dd>3306</dd>
+          </dl>
+          Clic en <q>Finish</q> abajo a la derecha.
+        </li>
+        <li>
+          Para verificar la conexión, haz clic en el <q>Pool Name</q> llamado
+          <q>pruebas</q> y cuando abra la pantalla, haz clic en <q>Ping</q>. Si
+          todo está bien, debe indicar <q>Ping succedded</q>
+        </li>
+        <li>
+          En el árbol de la izquierda selecciona la rama
+          <q>Resources &gt; JDBC &gt; JDBC Resources</q>
+        </li>
+        <li>Clic en <q>New&hellip;</q></li>
+        <li>
+          Introduce los siguientes datos de acuerdo con las configuraciones
+          realizadas anteriormente:
+          <dl>
+            <dt>JNDI Name</dt>
+            <dd>jdbc/pruebas</dd>
+            <dt>Pool Name</dt>
+            <dd>pruebas</dd>
+          </dl>
+          Clic en <q>OK</q> arriba a la derecha.
+        </li>
+      </ol>
+    </div>
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+  </body>
+</html>
