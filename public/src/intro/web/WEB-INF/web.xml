@@ -1,24 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
-    <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
-    </context-param>
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
-    <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
-    </welcome-file-list>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                            http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+  <context-param>
+    <description>
+      Comportamiento de Java Server Faces. Puede tomar los valores Development o
+      Production.
+      Development: El servidor ayuda al desarrollador a detectar probables
+      errores. Esto lo hace más lento.
+      Production:  El servidor se ejecuta a su máxima velocidad, reduciendo la
+      ayuda que proporciona para detectar errores.
+    </description>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <servlet>
+    <description>
+      Ejecuta las páginas de Java Server Faces,
+      servlet-name sirve para identificar el servlet,
+      servlet-class es el nombre de la clase para crear los objetos necesarios y
+      load-on-startup indica que se activa desde el inicio.
+    </description>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <!-- Indica las url en que se usará el servlet llamado "Faces Servlet". En
+    este caso url-pattern "/faces/*" indica que se aplica a las url internas que
+    empiezan con "faces"; o sea para las url del tipo
+    "http://host:puerto/proyecto/faces/archivo.xhtml".
+    En este proyecto, al usar Netbeans, este servlet mapping se usa para
+    procesar la url "http://localhost:8080/d201intro/faces/index.xhtml", que
+    corresponde al archivo "index.xhtml" de la carpeta "Web Pages". En este caso
+    "faces" no corresponde a una carpeta, sino que es un indicador de que la
+    página usa Java Server Faces.-->    
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <!-- Tiempo máximo en minutos durante los cuales la aplicación puede estar
+    sin recibir solicitudes del usuario. Después de este periodo, la aplicación
+    invalida la sesión y se pierden los datos almacenados en ella. Si el valor
+    es 0, la sesión no tiene límite de tiempo. -->
+    <session-timeout>
+      30
+    </session-timeout>
+  </session-config>
+  <!-- Lista de archivos que se intenta abrir cuando la url no indica el nombre
+  de archivo. Por ejemplo "http://localhost:8080/d201intro". Se prueba con cada
+  uno de los "welcome-file" hasta que uno exista.  -->
+  <welcome-file-list>
+    <welcome-file>faces/index.xhtml</welcome-file>
+  </welcome-file-list>
 </web-app>

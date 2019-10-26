@@ -1,12 +1,66 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Este archivo usa el formato XHTML, que consiste en usar las etiquetas de
+HTML pero usando las reglas de XML. Este es un comentario de XML.
+
+Las reglas principales de XML son:
+1. La primera línea de un archivo XML debiera ser el prólogo, o sea:
+<?xml version='1.0' encoding='UTF-8' ?>
+     encoding se refiere al juego de caracteres, que también puede ser
+     windows-1252 o iso-8859-1, etc.
+2. El contenido se expresa con elementos como los siguientes:
+     <cuate id="cuate1" nombre="Amanda" apellido="Zapata">
+       <vip />
+       <dirección>Andador de Corredores #34</direccion>
+     </cuate>
+   donde:
+   <cuate id="cuate1" nombre="Amanda" apellido="Zapata"> es la etiqueta inicial.
+   "cuate" es el tipo de elemento.
+   id="cuate1" es el identificador del elemento y es único en todo el documento.
+   nombre="Amanda" asigna el valor "Amanda" al atributo "nombre" de "cuate1".
+   apellido="Zapata" asigna el valor "Zapata" al atributo "apellido" de
+   "cuate1".
+
+   El contenido de "cuate1" son los elementos:
+       <vip />
+       <dirección>Andador de Corredores #34</direccion>
+   <vip /> es un elemento que no tiene contenido.
+   <dirección>Andador de Corredores #34</direccion> es un elemento cuyo
+      contenido es texto.
+3. Los elementos de HTML se ponen en MINÚSCULA.
+
+Para para que las páginas se muestren correctamente en Internet Explorer hay que
+omitir el prólogo, lo que obliga a que el juego de caracteres sea forzosamente
+UTF-8. Afortunadamente Netbeans crea los proyectos con esta codificación. Para
+verificarla o cambiarla, selecciona tu proyecto y luego los menús:
+   File -> Project Properties
+   Aparece un cuadro de diálogo y hasta abajo está un combo con la etiqueta
+   Encoding.
+
+El DOCTYPE indica el tipo de elementos y reglas que aplican al archivo -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+xmlns="http://www.w3.org/1999/xhtml"
+  indica el juego de etiquetas base, que es xhtml.
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+  indica el uso de etiquetas de jsf que se traducen a html. Estas etiquetas
+  empiezan con el prefijo "h".-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+  <!--
+  h:head
+    es el elemento de jsf que equivala a la etiqueta head de html. Cuando este
+    archivo se muestra en un navegador web, el Servlet Faces transforma todas
+    las etiquetas a su equivalente de html y "h:head" se transforma en "head".
+    Puedes abrir el código fuente de esta página en el navegador para que
+    observes la transformación. -->
+  <h:head>
+    <title>Facelet Title</title>
+  </h:head>
+  <!--
+  h:body
+    es el elemento de jsf que equivala a la etiqueta body de html. -->
+  <h:body>
+    Hello from Facelets
+  </h:body>
 </html>
-
