@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>web.xml - intro - Introducción a Java Web</title>
+    <title>payara-web.xml - forma - Introducción a Java Web</title>
 
     <script type="module" src="lib/registraServiceWorker.js"></script>
 
@@ -21,21 +21,40 @@
     <link rel="stylesheet" href="lib/prism.css">
   </head>
   <body class="vista match-braces line-numbers">
-    <header is="header-titulo" data-titulo="web.xml"></header>
+    <header is="header-titulo" data-titulo="payara-web.xml"></header>
     <div class="principal">
-      <p>Es el archivo con la configuración de los servidores Web de Java</p>
-      <pre data-src="src/intro/web/WEB-INF/web.xml"></pre>
+      <p>
+        Lo necesitamos para que las formas envíen sus datos en "UTF-8" y puedan
+        manejar correctamente acentos, así como otras letras que no se usan en
+        el idioma inglés.
+      </p>
+      <p>Para generar este archivo sigue los siguientes pasos:</p>
+      <ol>
+        <li>Selecciona el proyecto.</li>
+        <li>Selecciona el Menú: <q>File</q> &gt; <q>New File&hellip;</q></li>
+        <li>
+          Aparece un cuadro de diálogo. Selecciona:
+          <dl>
+            <dt>Categories</dt>
+            <dd>Payara</dd>
+            <dt>File Types</dt>
+            <dd>Payara Descriptor</dd>
+          </dl>
+          Click en <q>Next &gt;</q>
+        </li>
+        <li>Clic en <q>Finish</q></li>
+        <li>Mover el archivo a la carpeta <q>Web Pages/WEB-INF</q></li>
+      </ol>
+      <pre data-src="src/forma/web/WEB-INF/payara-web.xml"></pre>
       <aside>
         <h2>Enlaces</h2>
         <nav>
           <p>
-            <a href="intro_proyecto.html"><i
-                class="material-icons">navigate_before</i>Código del Proyecto
-              intro</a>
+            <a href="forma.html"><i
+                class="material-icons">navigate_before</i>Forma</a>
           </p>
-          <p><a href="intro.html">intro</a></p>
           <p>
-            <a href="intro_index_xhtml.html">index.xhtml<i
+            <a href="forma_web_xml.html">web.xml<i
                 class="material-icons">navigate_next</i></a>
           </p>
         </nav>

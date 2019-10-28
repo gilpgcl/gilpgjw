@@ -2,31 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Conexión a Bases de Datos en Payara</title>
+    <title>
+      Conexión a Bases de Datos en Payara - bd - Introducción a Java Web
+    </title>
 
-    <!-- Ícono para la página web. -->
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <link rel="icon" sizes="32x32" href="favicon.ico">
-
-    <!-- Color de la barra de navegación de Chrome. -->
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body class="vista">
-    <header>
-      <div class="herramientas">
-        &lt;&nbsp;<a href="bd_bd_sql.html">bd.sql</a>
-        <span class="divisor"></span>
-        <a href="bd.html">BD</a> |
-        <a href="bd_beanvalidation.html">Bean Validation</a>&nbsp;&gt;
-      </div>
-      <h1>Conexión a Bases de Datos en Payara</h1>
-    </header>
+    <header is="header-titulo"
+      data-titulo="Conexión a Bases de Datos en Payara"></header>
     <div class="principal">
       <ol>
         <li>Desde Netbeans selecciona la pestaña <q>Services</q></li>
@@ -80,7 +76,8 @@
         </li>
         <li>
           Para verificar la conexión, haz clic en el <q>Pool Name</q> llamado
-          <q>pruebas</q> y cuando abra la pantalla, haz clic en <q>Ping</q>. Si
+          <q>pruebas</q> y cuando abra la pantalla, haz clic en <q>Ping</q>.
+          Si
           todo está bien, debe indicar <q>Ping succedded</q>
         </li>
         <li>
@@ -100,7 +97,21 @@
           Clic en <q>OK</q> arriba a la derecha.
         </li>
       </ol>
+      <aside>
+        <h2>Enlaces</h2>
+        <nav>
+          <p>
+            <a href="bd_bd_sql.html">
+              <i class="material-icons">navigate_before</i>bd.sql</a>
+          </p>
+          <p><a href="bd.html">bd</a></p>
+          <p>
+            <a href="bd_bd_sql.html">bd.sql<i
+                class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
     </div>
-    <script type="module" src="lib/registraServiceWorker.js"></script>
   </body>
 </html>

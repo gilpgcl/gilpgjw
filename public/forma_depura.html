@@ -2,26 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Depuración</title>
+    <title>Depuración de forma - Introducción a Java Web</title>
 
-    <!-- Ícono para la página web. -->
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <link rel="icon" sizes="32x32" href="favicon.ico">
-
-    <!-- Color de la barra de navegación de Chrome. -->
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/colores.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <script type="module" src="lib/registraServiceWorker.js"></script>
     <script src="lib/polycustom.js"></script>
     <script type="module" src="cmp/mi-diapo.js"></script>
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body class="vista">
-    <img is="mi-diapo" data-url="img/depura_jsf/" data-total="66"
-      data-antes="forma.html">
+    <nav id="nav" is="diapo-nav" data-titulo="Depuración de forma"
+      data-urlanterior="forma_CtrlSaludo_java.html"
+      data-textoanterior="CtrlSaludo.java" data-urlmenu="forma.html"
+      data-textomenu="forma" data-urlsiguiente="forma_evaluacion.html"
+      data-textosiguiente="Evaluación de forma"></nav>
+    <img is="mi-diapo" data-nav="#nav" data-url="img/depura_jsf/"
+      data-total="66" data-antes="bd.html">
   </body>
 </html>

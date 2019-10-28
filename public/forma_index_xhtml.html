@@ -2,38 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>index.xhtml</title>
+    <title>index.xhtml - forma - Introducción a Java Web</title>
 
-    <!-- Ícono para la página web. -->
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <link rel="icon" sizes="32x32" href="favicon.ico">
-
-    <!-- Color de la barra de navegación de Chrome. -->
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/colores.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="lib/prism.css">
-    <script type="module" src="lib/registraServiceWorker.js"></script>
     <script src="lib/polycustom.js"></script>
     <script src="lib/clipboard.min.js"></script>
-    <script type="module" src="cmp/mi-diapo.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="lib/prism.css">
   </head>
   <body class="vista match-braces line-numbers">
-    <header>
-      <div class="herramientas">
-        &lt;&nbsp;<a href="forma_web_xml.html">web.xml</a>
-        <span class="divisor"></span>
-        <a href="forma.html">Forma</a> |
-        <a href="forma_CtrlSaludo_java.html">CtrlSaludo.java</a>&nbsp;&gt;
-      </div>
-      <h1>index.xhtml</h1>
-    </header>
+    <header is="header-titulo" data-titulo="index.xhtml"></header>
     <div class="ancho">
       <pre data-src="src/forma/web/index.html"></pre>
+      <aside>
+        <h2>Enlaces</h2>
+        <nav>
+          <p>
+            <a href="forma_web_xml.html"><i
+                class="material-icons">navigate_before</i>web.xml</a>
+          </p>
+          <p><a href="forma.html">forma</a></p>
+          <p>
+            <a href="forma_CtrlSaludo_java.html">CtrlSaludo.java<i
+                class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
     </div>
     <script src="lib/prism.js"></script>
   </body>

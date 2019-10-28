@@ -1,4 +1,4 @@
-const CACHE = "gilpgjw-59";
+const CACHE = "gilpgjw-69";
 const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
@@ -36,11 +36,12 @@ const ARCHIVOS = [
   "bd_payara.html",
   "bd.html",
   "favicon.ico",
-  "forma_controlador.html",
   "forma_CtrlSaludo_java.html",
   "forma_depura.html",
   "forma_index_xhtml.html",
+  "forma_payara-web_xml.html",
   "forma_web_xml.html",
+  "forma.html",
   "index.html",
   "intro_archivos_xml.html",
   "intro_crea.html",

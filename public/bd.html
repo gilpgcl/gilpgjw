@@ -2,29 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Acceso a Bases de Datos</title>
+    <title>bd - Introducción a Java Web</title>
 
-    <!-- Ícono para la página web. -->
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <link rel="icon" sizes="32x32" href="favicon.ico">
-
-    <!-- Color de la barra de navegación de Chrome. -->
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body class="vista">
-    <header>
-      <div class="herramientas">
-        &lt;&nbsp;<a href="index.html">index</a>
-      </div>
-      <h1>Acceso a Bases de Datos (pasa)</h1>
-    </header>
+    <header is="header-titulo" data-titulo="bd"></header>
     <div class="principal">
+      <p>Aquí se muestra como acceder a la base de datos con JSF.</p>
+      <p>
+        Este ejemplo usa <a href="bd_beanvalidation.html">bean validation.</a>
+      </p>
       <h2>Construcción y Ejecución del Proyecto</h2>
       <ol>
         <li>
@@ -34,14 +34,11 @@
         <li>
           <a href="bd_payara.html">Conecta la base de datos en Payara.</a>
         </li>
-        <li>
-          Este ejemplo usa <a href="bd_beanvalidation.html">bean validation.</a>
-        </li>
       </ol>
       <h2>Código Fuente</h2>
       <ul>
         <li>
-          forma
+          bd
           <ul>
             <li>
               Web Pages
@@ -71,12 +68,21 @@
           </ul>
         </li>
       </ul>
-      <h2>Depuración</h2>
-      <p>
-        El código se puede depurar y ejecutar paso a paso.
-        <a href="forma_depura.html">Ver depuración.</a>
-      </p>
+      <aside>
+        <h2>Enlaces</h2>
+        <nav>
+          <p>
+            <a href="forma_evaluacion.html">
+              <i class="material-icons">navigate_before</i>Evaluación de
+              forma</a>
+          </p>
+          <p>
+            <a href="bd_beanvalidation.html">Bean Validation<i
+                class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
     </div>
-    <script type="module" src="lib/registraServiceWorker.js"></script>
   </body>
 </html>

@@ -1,24 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
+<!--
+Se usa el DOCTYPE de HTML 5 porque partes del código generado por Glassfish
+corresponde a dicho estándar.
+
+Cuando la vista necesita procesar datos, se crea un objeto de la clase
+controladora. Los objetos se manipulan con referencias y hay que ponerles un
+nombre en la vista. La clase controladora nos indica ese nombre con la etiqueta
+@Named(value = "referencia")
+En este caso, la referencia se llama "referencia". Si le quieres poner otro
+nombre cambia lo que le asignas a "value", pero no se debe llamar igual que la
+clase.
+
+xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+Biblioteca que se usa para indicar los atributos que se pasan directamente al
+archivo generado sin cambios.
+
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+Biblioteca para etiquetas con significado especial para JSF. -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Saludo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  </head>
-  <body>
-    <form jsf:prependId="false">
-      <h1>Saludo</h1>
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <!-- Definición de la variable "título". La vamos a utilizar en dos lugares
+  (el título y el encabezado de la página) donde se quiere que tengan el mismo
+  valor. Si cambias el título solo lo cambias aquí. -->
+  <ui:param name="título" value="Saludo"/>
+  <h:head>
+    <!-- Como no tenemos el prólogo, usamos un elemento "meta" para indicar el
+    juego de caracteres. -->
+    <meta charset="UTF-8"/>
+    <ui:remove>
+      Este es un comentario de JSF. No aparece en el texto de HTML generado.
+      Con #{título} insertamos el valor de la variable "título". La sintaxis de
+      estas expresiones se conoce como EXPRESION LANGUAJE, o también "EL".
+
+      Los comentarios tradicionales de xml no ocultan las expresiones del tipo
+      #{expresión}.
+    </ui:remove>
+    <title>#{título}</title>
+    <!-- Para que al desplegarse en móviles use la resolución nativa del
+    navegador y no le haga zoom a la página. -->
+    <meta name="viewport" content="width=device-width"/>
+  </h:head>
+  <h:body>
+    <ui:remove>
+      Con #{título} se inserta el valor de la variable "título".
+    </ui:remove>
+    <h1>#{título}</h1>
+    <ui:remove>
+      Form para enviar datos al controlador. Debe rodear todos los componentes
+      que envían datos al controlador.
+
+      prependId="false"
+      Al generar los id de html, no se incluye el id de la form.
+    </ui:remove>
+    <h:form prependId="false">
+      <ui:remove>
+        Muestra mensajes generados por el controlador. Los mensajes pueden
+        estar asociados con un element o bien ser globales.
+
+        globalOnly="true"
+        Solo muestra los mensajes que no están asociados con ningún controlador.
+      </ui:remove>
       <h:messages globalOnly="true"/>
       <p>
-        <input jsf:id="nombre" type="text" placeholder="Nombre"
-               jsf:required="true" jsf:value="#{ctrlSaludo.nombre}"/>
+        <ui:remove>
+          Campo de texto.
+
+          id="nombre"
+          El id del campo de texto es "nombre".
+
+          p:placeholder="Nombre"
+          Texto que aparece como sello de agua. Se muestra cuando el
+          componente no tiene valor asociado. Cuando el componente tiene un
+          valor, se quita y se muestra dicho valor. El prefijo "p:" indica que
+          no es interpretado por JSF y se pasa sin modificaciones a HTML.
+
+          required="true"
+          La vista revisa que el campo no vaya vacío.
+
+          requiredMessage="Falta este valor"
+          Mensaje que muestra la vista cuando detecta que el campo no está
+          vacío.
+
+          value="#{referencia.nombre}"
+          El valor que usa este campo está conectado con la propiedad "nombre"
+          del controlador. Cuando necesita mostrar el valor usa el resultado de
+          "referencia.getNombre()" y cuando necesita enviar el valor al
+          controlador, se utiliza "referencia.setNombre(nombre)".
+        </ui:remove>
+        <h:inputText id="nombre" p:placeholder="Nombre" required="true"
+                     requiredMessage="Falta este valor"
+                     value="#{referencia.nombre}"/>
+        <ui:remove>
+          Muestra los mensajes asociados con el id nombre en JSF.
+
+          for="nombre"
+          Indica que este element muestra los mensajes del element con el id
+          "nombre".
+        </ui:remove>
         <h:message for="nombre"/>
       </p>
       <p>
-        <button jsf:action="#{ctrlSaludo.saluda()}">Saludar</button>
+        <ui:remove>
+          Botón de procesamiento. Manda los datos de la forma al controlador
+          usando el método de envío "POST".
+
+          value="Saludar":
+          Muestra el texto "Saludar" sin las comillas en el texto del botón.
+
+          action="#{referencia.saluda()}"
+          invoca "referencia.saluda()" con los siguientes pasos:
+          1. Cuando se activa la forma (una alternativa es hacerle clic a este
+          botón), se modifican las propiedades que están indicadas en los campos
+          de texto, que en este caso es "referencia.nombre". Se usa el método
+          "referencia.setNombre(nombre)".
+          2. Se invoca el contenido de "action", que en este caso es
+          "referencia.saluda()".
+        </ui:remove>
+        <h:commandButton value="Saludar" action="#{referencia.saluda()}"/>
       </p>
-    </form>
-  </body>
+    </h:form>
+    <footer>Copyright © 2019 Gilberto Pacheco Gallegos</footer>
+  </h:body>
 </html>
