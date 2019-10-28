@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Introducción a Java Web</title>
 
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <!-- Ícono para la página web. -->
     <link rel="icon" sizes="32x32" href="favicon.ico">
 
@@ -28,29 +30,49 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body class="vista">
-    <header>
-      <h1>Introducción a Java Web</h1>
-      <h2>Contenido</h2>
-    </header>
-    <nav class="principal">
-      <ul>
-        <li>
-          <a href="software.html">Instalación y Configuración de Software</a>
-        </li>
-        <li>
-          <a href="https://bit.ly/gilprdes" target="_blank">Repasa Java</a>
-        </li>
-        <li><a href="intro.html">El primer proyecto</a></li>
-        <li><a href="forma.html">Formularios</a></li>
-        <li><a href="bd.html">Acceso a bases de datos</a></li>
-        <li><a href="asociaciones.html">Asociaciones</a></li>
-        <li><a href="seguridad.html">Seguridad</a></li>
-      </ul>
-    </nav>
-    <script type="module" src="lib/registraServiceWorker.js"></script>
+    <header is="header-titulo" data-titulo="Introducción a Java Web"></header>
+    <div class="principal">
+      <p>Introducción al desarrollo de aplicaciones web con Java.</p>
+      <h2>Prerrequisitos</h2>
+      <p>
+        Debes conocer bien Java. El siguiente enlace te aydará a aprenderlo:
+        <a href="https://bit.ly/gilprdes" target="_blank">Repasa Java</a>
+      </p>
+      <h2>Estructura</h2>
+      <p>El contenido está explicado al inicio de cada página.</p>
+      <p>
+        El ícono <i class="material-icons">menu</i> al inicio de cada página,
+        muestra el menú.
+      </p>
+      <p>Al final de cada página están los enlaces de navegación.</p>
+      <p>
+        Los enlaces con la flecha <i class="material-icons">navigate_next</i>
+        muestran la siguiente página del contenido. Si sigues todas estas
+        flechas, revisas todo el contenido del sitio.
+      </p>
+      <p>
+        Los enlaces con la flecha <i class="material-icons">navigate_before</i>
+        muestran la página anterior del contenido.
+      </p>
+      <aside>
+        <nav>
+          <h2>Enlaces</h2>
+          <p>
+            <a href="software.html">
+              Instalación y Configuración de Software<i
+                class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
+    </div>
   </body>
 </html>

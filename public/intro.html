@@ -2,65 +2,76 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Intro</title>
+    <title>Intro - Introducción a Java Web</title>
 
-    <!-- Ícono para la página web. -->
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
     <link rel="icon" sizes="32x32" href="favicon.ico">
-
-    <!-- Color de la barra de navegación de Chrome. -->
     <meta name="theme-color" content="#ffffff">
-
-    <!-- Configuración de la Web App Chrome y Microsoft Store. -->
     <link rel="manifest" href="manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body class="vista">
-    <header>
-      <div class="herramientas">
-        &lt;&nbsp;<a href="index.html">index</a>
-      </div>
-      <h1>Intro (Primer Proyecto)</h1>
-    </header>
+    <header is="header-titulo" data-titulo="Intro"></header>
     <div class="principal">
-      <h2>Construcción y Ejecución del Proyecto</h2>
-      <ol>
-        <li>
-          <a href="intro_crea.html">
-            Crea el proyecto intro, pruébalo y súbelo a GitHub.
-          </a>
-        </li>
-        <li>
-          <a href="intro_deploy_jelastic.html">
-            Despliga el proyecto en Jelastic.
-          </a>
-        </li>
-      </ol>
-      <h2>Código Fuente</h2>
+      <p>Aquí se muestra como realizar el primer proyecto con JSF.</p>
+      <h2>Temas:</h2>
       <ul>
         <li>
-          intro
-          <ul>
-            <li>
-              Web Pages
-              <ul>
-                <li>
-                  WEB-INF
-                  <ul>
-                    <li><a href="intro_web_xml.html">web.xml</a></li>
-                  </ul>
-                </li>
-                <li><a href="intro_index_xhtml.html">index.xhtml</a></li>
-              </ul>
-            </li>
-          </ul>
+          <p>
+            <a href="intro_archivos_xml.html">Estructura de los Archivos
+              XML</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="intro_crea.html">Crea el Proyecto intro, Pruébalo y Súbelo
+              a GitHub</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="intro_deploy_jelastic.html">Despliega Intro en Jelastic</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="intro_proyecto.html">Código del Proyecto intro</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="intro_generado.html">Ver código generado por JSF</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="intro_evaluacion.html">Evaluacion de intro</a>
+          </p>
         </li>
       </ul>
-      <h2>Código Generado</h2>
-      <p><a href="intro_generado.html">Ver código generado</a>.</p>
+      <aside>
+        <nav>
+          <h2>Enlaces</h2>
+          <p>
+            <a href="software.html">
+              <i class="material-icons">navigate_before</i>Instalación y
+              Configuración de Software</a>
+          </p>
+          <p>
+            <a href="intro_archivos_xml.html">Estructura de los archivos
+              XML<i class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
     </div>
-    <script type="module" src="lib/registraServiceWorker.js"></script>
   </body>
 </html>

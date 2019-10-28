@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Estructura de los Archivos XML - Introducción a Java Web</title>
+
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+  </head>
+  <body class="vista">
+    <header is="header-titulo" data-titulo="Estructura de los Archivos XML">
+    </header>
+    <div class="principal">
+      <p>
+        Los archivos que se usan con JSF usan la sintaxis de XML. Aún las
+        páginas.
+      </p>
+      <p>Las reglas principales de XML son:</p>
+      <ul>
+        <li>
+          <p>
+            La primera línea de un archivo XML debiera ser el prólogo, o sea:
+            <pre><code>&lt;?xml version='1.0' encoding='UTF-8' ?&gt;</code></pre>
+            encoding se refiere al juego de caracteres, que también puede ser
+            windows-1252 o iso-8859-1, etc.
+          </p>
+          <p>
+            Para para que las páginas se muestren correctamente en Internet
+            Explorer hay que omitir el prólogo, lo que obliga a que el juego de
+            caracteres sea forzosamente UTF-8. Afortunadamente Netbeans crea los
+            proyectos con esta codificación. Para verificarla o cambiarla,
+            selecciona tu proyecto y luego los menús:
+          </p>
+          <p><q>File</q> &gt; <q>Project Properties</q></p>
+          <p>
+            Aparece un cuadro de diálogo y hasta abajo está un combo con la
+            etiqueta <q>Encoding</q>.
+          </p>
+        </li>
+        <li>
+          <p>El contenido se expresa con elementos como los siguientes:</p>
+          <pre>&lt;cuate id=&quot;cuate1&quot; nombre=&quot;Amanda&quot; apellido=&quot;Zapata&quot;&gt;
+  &lt;vip /&gt;
+  &lt;direcci&oacute;n&gt;Andador de Corredores #34&lt;/direccion&gt;
+  &lt;!-- comentario --&gt;
+&lt;/cuate&gt;</pre>
+          <p>donde:</p>
+          <dl>
+            <dt>
+              <pre>&lt;cuate id=&quot;cuate1&quot; nombre=&quot;Amanda&quot; apellido=&quot;Zapata&quot;&gt;</pre>
+            </dt>
+            <dd>es la etiqueta inicial.</dd>
+            <dt>
+              <pre>cuate</pre>
+            </dt>
+            <dd>es el tipo de elemento.</dd>
+            <dt>
+              <pre>id=&quot;cuate1&quot;</pre>
+            </dt>
+            <dd>
+              es el identificador del elemento y es único en todo el
+              documento.
+            </dd>
+            <dt>
+              <pre>nombre=&quot;Amanda&quot;</pre>
+            </dt>
+            <dd>
+              asigna el valor <q>Amanda</q> al atributo <q>nombre</q> de
+              <q>cuate1</q>.
+            </dd>
+            <dt>
+              <pre>apellido=&quot;Zapata&quot;</pre>
+            </dt>
+            <dd>
+              asigna el valor <q>Zapata</q> al atributo <q>apellido</q> de
+              <q>cuate1</q>.
+            </dd>
+          </dl>
+          <p>El contenido de "cuate1" son los elementos:</p>
+          <dl>
+            <dt>
+              <pre>&lt;vip /&gt;</pre>
+            </dt>
+            <dd>es un elemento que no tiene contenido.</dd>
+            <dt>
+              <pre>&lt;direcci&oacute;n&gt;Andador de Corredores #34&lt;/direccion&gt;</pre>
+            </dt>
+            <dd>es un elemento cuyo contenido es texto.</dd>
+            <dt>
+              <pre>&lt;!-- comentario --&gt;</pre>
+            </dt>
+            <dd>es un comentario.</dd>
+          </dl>
+        </li>
+        <li>
+          <p>Los elementos de HTML se ponen en <strong>minúscula</strong>.</p>
+        </li>
+      </ul>
+      <aside>
+        <nav>
+          <h2>Enlaces</h2>
+          <p>
+            <a href="intro.html">
+              <i class="material-icons">navigate_before</i>intro</a>
+          </p>
+          <p>
+            <a href="intro_crea.html">Crea el proyecto intro, pruébalo y súbelo
+              a GitHub<i class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
+    </div>
+  </body>
+</html>

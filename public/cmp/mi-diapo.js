@@ -1,5 +1,13 @@
+import { DiapoNav } from "./diapo-nav.js";
+
 document.head.innerHTML +=/*html*/
-  `<link rel="stylesheet" href="/cmp/mi-diapo.css">`;
+  `<style>
+    [is=mi-diapo] {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>`;
 customElements.define("mi-diapo", class extends HTMLImageElement {
   connectedCallback() {
     const fragmento = location.hash.trim().replace(/^\#/, "");
@@ -9,7 +17,8 @@ customElements.define("mi-diapo", class extends HTMLImageElement {
     muestra(this);
     window.addEventListener("resize", resize.bind(null, this));
     resize(this);
-
+    this.addEventListener("click",
+      () => DiapoNav.get(document, this.dataset.nav).hidden = false);
     /**
      * @param {HTMLImageElement} obj */
     function resize(obj) {

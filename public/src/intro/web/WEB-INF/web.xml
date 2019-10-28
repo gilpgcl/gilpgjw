@@ -5,12 +5,13 @@
                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
   <context-param>
     <description>
-      Comportamiento de Java Server Faces. Puede tomar los valores Development o
-      Production.
-      Development: El servidor ayuda al desarrollador a detectar probables
-      errores. Esto lo hace más lento.
-      Production:  El servidor se ejecuta a su máxima velocidad, reduciendo la
-      ayuda que proporciona para detectar errores.
+      Comportamiento de Java Server Faces. Puede tomar los siguientes valores:
+      Development:
+      El servidor ayuda al desarrollador a detectar probables errores. Esto lo
+      hace más lento.
+      Production:
+      El servidor se ejecuta a su máxima velocidad, reduciendo la ayuda que
+      proporciona para detectar errores.
     </description>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>

@@ -1,11 +1,22 @@
-const CACHE = "gilpgjw";
-const CACHE_EXTRA = "gilpgjwImg";
+const CACHE = "gilpgjw-59";
+const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
-  "cmp/mi-diapo.css",
+  "cmp/header-titulo.js",
   "cmp/mi-diapo.js",
+  "cmp/mi-footer.js",
+  "cmp/diapo-nav.js",
+  "cmp/mi-nav.js",
+  "css/codepoints",
   "css/colores.css",
   "css/estilos.css",
+  "css/material-icons.css",
+  "css/MaterialIcons-Regular.eot",
+  "css/MaterialIcons-Regular.ijmap",
+  "css/MaterialIcons-Regular.svg",
+  "css/MaterialIcons-Regular.ttf",
+  "css/MaterialIcons-Regular.woff",
+  "css/MaterialIcons-Regular.woff2",
   "img/icono.png",
   "lib/clipboard.min.js",
   "lib/polycustom.js",
@@ -19,7 +30,10 @@ const ARCHIVOS = [
   "src/intro/web/WEB-INF/web.xml",
   "src/intro/web/index.html",
   "src/intro/generado.html",
+  "src/pasa/bd.sql",
   "bd_bd_sql.html",
+  "bd_beanvalidation.html",
+  "bd_payara.html",
   "bd.html",
   "favicon.ico",
   "forma_controlador.html",
@@ -28,13 +42,17 @@ const ARCHIVOS = [
   "forma_index_xhtml.html",
   "forma_web_xml.html",
   "index.html",
+  "intro_archivos_xml.html",
   "intro_crea.html",
   "intro_deploy_jelastic.html",
+  "intro_evaluacion.html",
   "intro_generado.html",
   "intro_index_xhtml.html",
+  "intro_proyecto.html",
   "intro_web_xml.html",
   "intro.html",
   "manifest.json",
+  "menu.html",
   "software.html",
   '/'
 ];
@@ -70,8 +88,7 @@ async function cargaRequest(evt) {
   const respCache =
     await cache.match(evt.request, { ignoreSearch: true });
   if (respCache) {
-    // Si lo encuentra en la caché pequeña devuelve esta y actualiza.
-    actualizaResponse(cache, evt.request);
+    // Si lo encuentra en la caché pequeña devuelve esta.
     return respCache;
   } else {
     // Como no está en la caché pequeña, lo busca en la grande.

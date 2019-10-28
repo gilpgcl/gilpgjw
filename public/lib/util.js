@@ -5,3 +5,29 @@ export function error(e) {
   console.error(e);
   alert(e.message);
 }
+
+/** Asegura que una condición se cumpla, o en caso contrario lanza un Error. * 
+ * @param {*} condición expresión cuyo valor boolean debe ser true.
+ * @param {*} mensaje mensaje para el Error que se lanza cuando la condición no
+ * @param {ErrorConstructor} [tipo=Error] tipo del error. */
+export function valida(condición, mensaje, tipo = Error) {
+  if (!condición) {
+    throw new tipo(mensaje);
+  }
+}
+
+/** Codifica un texto para que escape los caracteres especiales para que no se
+ * pueda interpretar como HTML.
+ * @param {*} texto
+ * @returns {string} un texto que no puede interpretarse como HTML. */
+export function cod(texto) {
+  let div = document.createElement('div');
+  div.innerText = (texto || "").toString();
+  return div.innerHTML;
+}
+
+/** Codifica una url para su uso en html.
+ * @param {string} u url codificada. */
+export function url(u) {
+  return cod(encodeURIComponent(u));
+}

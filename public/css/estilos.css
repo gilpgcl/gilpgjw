@@ -4,6 +4,8 @@ body {
   background-color: var(--color-fondo);
 }
 
+.material-icons {vertical-align: middle;}
+
 body,
 input,
 button,
@@ -28,58 +30,17 @@ header {
   background-color: var(--color-fondo-principal);
   color: var(--color-principal);
   padding: 0.5em;
-}
-
-header h1 {
-  margin: 0;
-  height: 1.3em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space:nowrap
-}
-
-.herramientas {
   display: flex;
   align-items: center
 }
 
-.herramientas .divisor {
-  margin-right: auto
-}
-
-.herramientas button {
-  background-color: transparent;
-  color: var(--color-principal);
-  border: none;
-  padding: 0.5em;
-  text-transform: uppercase;
-  cursor: pointer
-}
-
-nav {
-  background-color: var(--color-fondo-principal);
-  color: var(--color-principal);
-  font-size: small
-}
-
-nav * {
-  background-color: transparent;
-  color: var(--color-principal);
-  font-size: small
-}
-
-.navegacion {
-  display: flex;
-  flex-shrink: 0;
-  overflow: auto
-}
-
-.navegacion * {
-  text-align: center;
-  padding: 0.5em 0.25em;
-  border: none;
-  text-decoration: none;
-  cursor: pointer
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap
 }
 
 .principal {
@@ -96,60 +57,13 @@ nav * {
   overflow: auto
 }
 
-.cargando {
-  text-align: center
-}
-
-.preguntas>li {
-  white-space: pre
-}
-
-li {
-  padding: 0.5em 0;
-}
-
-figure img {
-  max-width: 100%;
-  margin-right: 0.3em
-}
-
-fieldset {
-  border: none
-}
-
-legend {
-  color: var(--color-secundario);
-  font-size: small
-}
-
-[type=text],
-[type=url],
-[type=search],
-[type=number],
-[type=email],
-textarea {
-  padding: 0;
-  margin: 0;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 1px solid grey;
-  display: block;
-  width: 100%
-}
-
-[type=text]:focus,
-[type=url]:focus,
-[type=search]:focus,
-[type=number]:focus,
-[type=email]:focus,
-textarea:focus {
-  outline: none;
-  border-bottom: 1px solid var(--color-secundario);
-}
-
 .vacia::before {
   content: "No se encontraron datos.";
+}
+
+button {
+  background-color: var(--color-fondo-button);
+  border: none;
 }
 
 footer {
@@ -159,18 +73,4 @@ footer {
 
 pre {
   overflow: auto
-}
-
-tr:hover {
-  background-color: lightgray
-}
-
-@media (min-width: 400px) {
-  .opciones-respuestas {
-    display: flex
-  }
-
-  .opciones-respuestas>* {
-    flex-grow: 1
-  }
 }
