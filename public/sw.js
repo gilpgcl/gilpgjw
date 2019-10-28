@@ -1,4 +1,4 @@
-const CACHE = "gilpgjw-69";
+const CACHE = "gilpgjw-83";
 const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
@@ -31,10 +31,6 @@ const ARCHIVOS = [
   "src/intro/web/index.html",
   "src/intro/generado.html",
   "src/pasa/bd.sql",
-  "bd_bd_sql.html",
-  "bd_beanvalidation.html",
-  "bd_payara.html",
-  "bd.html",
   "favicon.ico",
   "forma_CtrlSaludo_java.html",
   "forma_depura.html",
@@ -55,6 +51,10 @@ const ARCHIVOS = [
   "manifest.json",
   "menu.html",
   "software.html",
+  "pasa_bd_sql.html",
+  "passa_beanvalidation.html",
+  "pasa_payara.html",
+  "pasa.html",
   '/'
 ];
 
