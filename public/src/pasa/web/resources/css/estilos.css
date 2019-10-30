@@ -1,0 +1,9 @@
+body {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body, a {
+  font-family: sans-serif
+}

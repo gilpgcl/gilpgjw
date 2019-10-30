@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <ui:param name="título" value="#{ctrlConocido.modelo.nombre}"/>
+  <h:head>
+    <meta charset="UTF-8" />
+    <title>#{título}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link jsf:library="css" jsf:name="estilos.css"/>
+  </h:head>
+  <h:body>
+    <f:metadata>
+      <f:viewParam name="id" value="#{ctrlPasatiempo.id}" required="true"/>
+      <f:viewAction action="#{ctrlPasatiempo.init()}"/>
+    </f:metadata>
+    <form jsf:prependId="false">
+      <header>
+        <a jsf:outcome="index">Cancelar⁬⁬⁬</a>
+        <button type="submit" jsf:action="#{ctrlPasatiempo.guarda()}">
+          Guardar
+        </button>
+        <button type="submit" jsf:action="#{ctrlPasatiempo.elimina()}">
+          Eliminar
+        </button>
+        <h1>#{título}</h1>
+      </header>
+      <h:messages globalOnly="true"/>
+      <p>
+        <input jsf:id="nombre" type="text" placeholder="Nombre"
+               jsf:value="#{ctrlPasatiempo.modelo.nombre}"/>
+        <h:message for="nombre"/>
+      </p>
+      <ezcomp:mi-footer></ezcomp:mi-footer>
+    </form>
+  </h:body>
+</html>
+

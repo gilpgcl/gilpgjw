@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <ui:param name="título" value="Pasatiempos"/>
+  <h:head>
+    <meta charset="UTF-8"/>
+    <title>#{título}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet library="css" name="estilos.css"/>
+  </h:head>
+  <h:body>
+    <h:form prependId="false">
+      <header>
+        <!-- ancla que abre una página de JSF. -->
+        <h:link value="Agregar⁬⁬⁬…" outcome="pasatiempoNuevo"/>
+        <h1>#{título}</h1>
+      </header>
+      <h:messages globalOnly="true"/>
+      <ul jsfc="ui:repeat" var="it" value="#{ctrlPasatiempos.instancias}">
+        <li>
+          <h:link outcome="pasatiempo">
+            <f:param name="id" value="#{it.id}"/>
+            #{it.nombre}
+          </h:link>
+        </li>
+      </ul>
+      <ezcomp:mi-footer></ezcomp:mi-footer>
+    </h:form>
+  </h:body>
+</html>
+
