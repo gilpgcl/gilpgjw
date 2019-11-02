@@ -1,4 +1,4 @@
-import { url, cod } from "../lib/htmlUtil.js";
+import { cod } from "../lib/htmlUtil.js";
 document.head.innerHTML += /* html */
   `<style>
     mi-diapo {
@@ -67,6 +67,9 @@ class MiDiapo extends HTMLElement {
       </div>`;
     const fragmento = location.hash.trim().replace(/^\#/, "");
     this.actual = fragmento ? parseInt(fragmento, 10) : 1;
+    this.total = this.dataset.total ? parseInt(this.dataset.total, 10) : 1000;
+    this.url = this.dataset.url || "";
+    this.extensión = this.dataset.extension || ".jpg";
     this.img = this.querySelector("img");
     this.nav = this.querySelector("nav");
     if (this.nav) {
@@ -109,7 +112,7 @@ class MiDiapo extends HTMLElement {
     }
   }
   avanza() {
-    if (this.actual < parseInt(this.dataset.total, 10)) {
+    if (this.actual < this.total) {
       ++this.actual;
       this.muestra();
     }
@@ -121,7 +124,7 @@ class MiDiapo extends HTMLElement {
     }
   }
   muestra() {
-    this.img.src = encodeURI((this.dataset.url + this.actual) + ".jpg");
+    this.img.src = encodeURI(this.url + this.actual + this.extensión);
     location.hash = "#" + this.actual;
   }
   siguiente() {

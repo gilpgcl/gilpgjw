@@ -111,3 +111,11 @@ export function exige(referencia, mensaje) {
   }
   return referencia;
 }
+
+/**
+ * @param {Response} resp  */
+export function validaResponse(resp) {
+  if (!resp.ok) {
+    throw new Error(resp.statusText);
+  }
+}
