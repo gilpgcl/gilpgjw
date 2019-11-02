@@ -1,6 +1,7 @@
 package net.ramptors.pasa;
 
 import java.io.Serializable;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -19,6 +20,8 @@ public class CtrlPasatiempo implements Serializable {
   private static final long serialVersionUID = 1L;
   @Inject
   private Mensajes mensajes;
+  @Inject
+  private ExternalContext externalContext;
   @Inject
   private DaoPasatiempo info;
   private Integer id;
@@ -43,8 +46,8 @@ public class CtrlPasatiempo implements Serializable {
     }
   }
   private void leeLlavePrimaria() throws NumberFormatException {
-    final String parámetroId = FacesContext.getCurrentInstance().
-        getExternalContext().getRequestParameterMap().get("id");
+    final String parámetroId =
+        externalContext.getRequestParameterMap().get("id");
     id = new Integer(parámetroId);
   }
   public String guarda() {

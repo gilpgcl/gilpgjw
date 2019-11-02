@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <body>
+    <ui:composition template="./../WEB-INF/plantillas/plantilla.xhtml">
+      <ui:param name="título" value=
+                "#{ctrlUsuario.nuevo? 'Usuario Nuevo' : ctrlUsuario.modelo.id}"/>
+      <ui:define name="herramientas">
+        <ezcomp:herramientas-detalle guardar="#{ctrlUsuario.guarda()}"
+                                     eliminar="#{ctrlUsuario.elimina()}"/>
+      </ui:define>
+      <ui:define name="principal">
+        <figure  jsfc="ui:fragment" jsf:rendered="#{!ctrlUsuario.nuevo}">
+          <img src="../SpImagen?id=#{ctrlUsuario.modelo.imagen.id}"
+               alt="#{ctrlUsuario.modelo.id}"/>
+        </figure>
+        <ui:param name="lblCue" value="Cue"/>
+        <ezcomp:campo id="cue" legend="#{lblCue}" rendered="#{ctrlUsuario.nuevo}">
+          <input jsf:id="v" type="text" jsf:label="#{lblCue}"
+                 placeholder="4 a 14 caracteres"
+                 jsf:value="#{ctrlUsuario.modelo.id}"/>
+        </ezcomp:campo>
+        <ui:param name="lblContrasenha" value="Contraseña"/>
+        <ezcomp:campo id="contrasenha" legend="#{lblContrasenha}">
+          <input jsf:id="v" type="password" jsf:label="#{lblContrasenha}"
+                 jsf:redisplay="true" placeholder="5 a 25 caracteres"
+                 jsf:value="#{ctrlUsuario.contraseña}"/>
+        </ezcomp:campo>
+        <ui:param name="lblConfirma" value="Confirma Contraseña"/>
+        <ezcomp:campo id="confirma" legend="#{lblConfirma}">
+          <input jsf:id="v" type="password" jsf:label="#{lblConfirma}"
+                 jsf:redisplay="true"
+                 placeholder="Debe coincidir con la contraseña"
+                 jsf:value="#{ctrlUsuario.confirmaContraseña}"/>
+        </ezcomp:campo>
+        <ui:param name="lblImagen" value="Imagen"/>
+        <ezcomp:campo id="imagen" legend="#{lblAvatar}">
+          <input jsf:id="v" type="file" jsf:label="#{lblImagen}"
+                 accept=".png,.jpg,.jpeg,.gif"
+                 jsf:value="#{ctrlUsuario.modelo.part}"/>
+        </ezcomp:campo>
+        <ui:param name="lblNombre" value="Nombre"/>
+        <ezcomp:campo id="nombre" legend="#{lblNombre}">
+          <input jsf:id="v" type="text" jsf:label="#{lblNombre}"
+                 jsf:value="#{ctrlUsuario.modelo.nombre}"/>
+        </ezcomp:campo>
+        <ui:param name="lblPasatiempo" value="Pasatiempo"/>
+        <ezcomp:campo id="pasatiempo" legend="#{lblPasatiempo}">
+          <select jsf:id="v" jsf:label="#{lblPasatiempo}"
+                  jsf:value="#{ctrlUsuario.modelo.pasatiempo}">
+            <f:converter binding="#{convertidorDePasatiempo}"/>
+            <f:selectItem itemLabel="-- Sin Pasatiempo --"
+                          noSelectionOption="true"/>
+            <f:selectItems value="#{ctrlPasatiempos.instancias}"/>
+          </select>
+        </ezcomp:campo>
+        <ui:param name="lblRoles" value="Roles"/>
+        <ezcomp:campo id="roles" legend="#{lblRoles}">
+          <h:selectManyCheckbox id="v" label="#{lblRoles}"
+                                converter="#{convertidorDeRol}"
+                                layout="pageDirection"
+                                value="#{ctrlUsuario.modelo.arregloDeRoles}">
+            <f:selectItems value="#{ctrlRoles.instancias}"/>
+          </h:selectManyCheckbox>
+        </ezcomp:campo>
+      </ui:define>
+    </ui:composition>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+  <cc:interface shortDescription="Barra de herramientas para edición">
+    <cc:attribute name="guardar" required="true"
+                  method-signature="java.lang.Object guarda()"
+                  shortDescription=
+                  "Acción que se ejecuta al activar el botón guardar."/>
+    <cc:attribute name="eliminar" required="true"
+                  method-signature="java.lang.Object elimina()"
+                  shortDescription=
+                  "Acción que se ejecuta al activar el botón eliminar."/>
+  </cc:interface>
+  <cc:implementation>
+    <div class="herramientas">
+      <a title="Cancelar" jsf:outcome="index">
+        <i class="material-icons">arrow_back</i>
+      </a>
+      <span class="divisor"></span>
+      <button type="submit" title="Guardar" jsf:action="#{cc.attrs.guardar}">
+        <i class="material-icons">save</i>
+      </button>
+      <button type="submit" title="Eliminar"
+              jsf:action="#{cc.attrs.eliminar}"
+              onclick="return confirm(
+                          'Confirma la eliminación.\nPerderás los datos.');">
+        <i class="material-icons">delete_forever</i>
+      </button>
+    </div>
+  </cc:implementation>
+</html>

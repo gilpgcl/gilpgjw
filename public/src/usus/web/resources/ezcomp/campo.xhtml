@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <cc:interface shortDescription=
+                "Campo de captura con etiqueta y mensajes de error.">
+    <cc:attribute name="legend" required="true"
+                  shortDescription="Texto de la leyenda."/>
+  </cc:interface>
+  <cc:implementation>
+    <fieldset id="#{cc.clientId}">
+      <legend>#{cc.attrs.legend}</legend>
+      <ui:fragment>
+        <!-- Añade el contenido del elemento. -->
+        <cc:insertChildren/>
+      </ui:fragment>
+      <h:message id="m" for="v" errorClass="error" infoClass="info"/>
+    </fieldset>
+  </cc:implementation>
+</html>

@@ -10,8 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/** Clase conectada a la tabla Conocido. La tabla se crea automáticamente a
- * partir de los atributos definidos en esta clase, usando los mismos nombres.
+/** Clase conectada a la tabla Pasatiempo.
  * Esta clase se crea con los siguientes pasos:
  * <ol>
  * <li>Selecciona el paquete donde quieras colocar la clase .</li>

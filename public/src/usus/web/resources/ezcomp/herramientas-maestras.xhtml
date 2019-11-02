@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <cc:interface shortDescription="Barra de herramientas para forma maestra">
+    <cc:attribute name="filtrando" required="true" type="java.lang.Boolean"
+                  shortDescription="Indica si el filtro está activo."/>
+    <cc:attribute name="filtro" required="true" type="java.lang.String"
+                  shortDescription="Propiedad que se liga al filtro."/>
+    <cc:attribute name="activa" required="true"
+                  method-signature="java.lang.Object activaFiltrado()"
+                  shortDescription="Mètodo que activa el filtrado."/>
+    <cc:attribute name="cancela" required="true"
+                  method-signature="java.lang.Object cancelaFiltrado()"
+                  shortDescription="Mètodo que cancela el filtrado."/>
+  </cc:interface>
+  <cc:implementation>
+    <div class="herramientas">
+      <button type="button" title="Cancelar"
+              jsf:action="#{cc.attrs.cancela}"
+              jsf:rendered="#{cc.attrs.filtrando}">
+        <i class="material-icons">arrow_back</i>
+        <f:ajax listener="#{cc.attrs.cancela}" render="@form"/>
+      </button>
+      <input type="search" placeholder="Filtro"
+             jsf:value="#{cc.attrs.filtro}"
+             jsf:rendered="#{cc.attrs.filtrando}">
+        <f:ajax render="@form"/>
+      </input>
+      <span class="divisor"></span>
+      <button title="Buscar"
+              jsf:rendered="#{!cc.attrs.filtrando}">
+        <i class="material-icons">search</i>
+        <f:ajax listener="#{cc.attrs.activa}" render="@form"/>
+      </button>
+      <a id="agregar" title="Agregar" jsf:outcome="edicion"
+         jsf:rendered="#{!cc.attrs.filtrando}">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  </cc:implementation>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+  <body>
+    <ui:composition template="./../WEB-INF/plantillas/plantilla.xhtml">
+      <ui:param name="título" value="Pasatiempos"/>
+      <ui:define name="herramientas">
+        <ezcomp:herramientas-maestras filtro="#{ctrlUsuarios.filtro}"
+                                      filtrando="#{ctrlUsuarios.filtrando}"
+                                      activa="#{ctrlUsuarios.activaFiltrado()}"
+                                      cancela="#{ctrlUsuarios.cancelaFiltrado()}"
+                                      />
+      </ui:define>
+      <ui:define name="principal">
+        <ul class="mi-lista">
+          <ui:repeat var="it" value="#{ctrlUsuarios.instancias}">
+            <li>
+              <div class="imagen">
+                <img src="../SpImagen?id=#{it.imagen.id}" alt="#{it.id}">
+                  <f:param name="id" value=""/>
+                </img>
+              </div>
+              <div>
+                <a jsf:outcome="edicion">
+                  <f:param name="id" value="#{it.id}"/>
+                  #{it.id}
+                </a><br/>
+                #{it.nombre}<br/>
+                #{it.pasatiempo.nombre}<br/>
+                ${it.idDeRoles}
+              </div>
+            </li>
+          </ui:repeat>
+          <li class="vacia" jsfc="ui:fragment"
+              rendered="#{empty ctrlUsuarios.instancias}">
+            No se encontraron datos.
+          </li>
+        </ul>
+      </ui:define>
+    </ui:composition>
+  </body>
+</html>

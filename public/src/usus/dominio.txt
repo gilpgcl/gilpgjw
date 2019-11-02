@@ -1,0 +1,20 @@
+Abrir la consola de Glassfish(View domain admin console)
+  Configurations
+    server-config
+      Security
+        Realms
+          New...
+                 Name: bd
+           Class Name: com.sun.enterprise.security.ee.auth.realm.jdbc.JDBCRealm
+         JAAS Context: jdbcRealm
+                 JNDI: jdbc/pruebas
+           User Table: USUARIO
+     User Name Column: USU_CUE
+      Password Column: USU_MATCH
+          Group Table: USUARIO_ROL
+Group Table User Name: USU_CUE
+    Group Name Column: ROL_ID
+// Algoritmo de Cifrado de Contraseña: SHA-256
+
+OK
+Restart
