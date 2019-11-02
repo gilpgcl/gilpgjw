@@ -25,11 +25,14 @@ document.head.innerHTML += /* html */
   </style>`;
 class MiDiapo extends HTMLElement {
   connectedCallback() {
-    this.urlanterior = url(this.dataset.urlanterior);
-    this.textoanterior = cod(this.dataset.textoanterior);
-    this.urlmenu = url(this.dataset.urlmenu);
-    this.textomenu = cod(this.dataset.textomenu);
-    this.urlsiguiente = url(this.dataset.urlsiguiente);
+    const urlanterior =
+      this.dataset.urlanterior ? encodeURI(this.dataset.urlanterior) : "";
+    const textoanterior = cod(this.dataset.textoanterior);
+    const urlmenu =
+      this.dataset.urlmenu ? encodeURI(this.dataset.urlmenu) : "";
+    const textomenu = cod(this.dataset.textomenu);
+    this.urlsiguiente =
+      this.dataset.urlsiguiente ? encodeURI(this.dataset.urlsiguiente) : "";
     this.textosiguiente = cod(this.dataset.textosiguiente);
     this.innerHTML = /* html */
       `<div class="vista">
@@ -46,21 +49,16 @@ class MiDiapo extends HTMLElement {
             <h1>${this.dataset.titulo}</h1>
           </header>
           <nav class="principal">`
-      + (this.urlanterior ? /*html*/
+      + (urlanterior ? /*html*/
         `   <p>
-              <a href="${url(this.dataset.urlanterior)}"><i
-                class="material-icons">navigate_before</i>${
-        cod(this.dataset.textoanterior)}</a>
+              <a href="${urlanterior}"><i
+                class="material-icons">navigate_before</i>${textoanterior}</a>
             </p>`: "")
-      + (this.urlmenu ? /*html*/
-        `   <p>
-              <a href="${url(this.dataset.urlmenu)}">${
-        cod(this.dataset.textomenu)}</a>
-            </p>`: "")
+      + (urlmenu ? /*html*/
+        `   <p><a href="${urlmenu}">${textomenu}</a></p>` : "")
       + (this.urlsiguiente ? /*html*/
         `   <p>
-              <a href="${url(this.dataset.urlsiguiente)}">${
-        cod(this.dataset.textosiguiente)}<i
+              <a href="${this.urlsiguiente}">${this.textosiguiente}<i
                 class="material-icons">navigate_next</i></a>
             </p>`: "")
       + /*html*/
@@ -123,12 +121,12 @@ class MiDiapo extends HTMLElement {
     }
   }
   muestra() {
-    this.img.src = (this.dataset.url + this.actual) + ".jpg";
+    this.img.src = encodeURI((this.dataset.url + this.actual) + ".jpg");
     location.hash = "#" + this.actual;
   }
   siguiente() {
-    if (this.dataset.urlsiguiente) {
-      location.href = encodeURI(this.dataset.urlsiguiente);
+    if (this.urlsiguiente) {
+      location.href = this.urlsiguiente;
     }
   }
 }

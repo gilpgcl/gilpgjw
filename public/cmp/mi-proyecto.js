@@ -1,4 +1,5 @@
 import { DiapoNav } from "./diapo-nav.js";
+import { url, cod } from "../lib/htmlUtil.js";
 
 document.head.innerHTML +=/*html*/
   `<style>
@@ -8,10 +9,11 @@ document.head.innerHTML +=/*html*/
       margin-right: auto;
     }
   </style>`;
-customElements.define("mi-diapo", class extends HTMLImageElement {
+customElements.define("mi-proyecto", class extends HTMLImageElement {
   connectedCallback() {
-    const fragmento = location.hash.trim().replace(/^\#/, "");
-    let actual = fragmento ? parseInt(fragmento, 10) : 1;
+    const urlmenu =
+      this.dataset.urlmenu ? encodeURI(this.dataset.urlmenu) : "";
+    const textomenu = cod(this.dataset.textomenu);
     this.classList.add("vista");
     this.innerHTML = /* html */
       `<header>
@@ -23,50 +25,23 @@ customElements.define("mi-diapo", class extends HTMLImageElement {
         <h1>${this.dataset.titulo}</h1>
       </header>
       <div class="principal">
-        <p>
-          <a href="${url(this.dataset.urlanterior)}"><i
-            class="material-icons">navigate_before</i>${
-      cod(this.dataset.textoanterior)}</a>
-        </p>
-        <p>
-          <a href="${url(this.dataset.urlmenu)}">${
-      cod(this.dataset.textomenu)}</a>
-        </p>
-        <p>
-          <a href="${url(this.dataset.urlsiguiente)}">${
-      cod(this.dataset.textosiguiente)}<i
-            class="material-icons">navigate_next</i></a>
+        <p class="anterior">
+          <a><i class="material-icons">navigate_before</i><span></span></a>
+        </p>`
+      + (urlmenu ? /*html*/
+        `<p><a href="${urlmenu}">${textomenu}</a></p>` : "")
+      +  /*html*/
+      ` <p class="anterior">
+          <a><i class="material-icons">navigate_next</i><span></span></a>
         </p>
       </div>`;
-
-    /**
-     * @param {HTMLImageElement} obj */
-    function avanza(obj) {
-      if (actual < parseInt(obj.dataset.total, 10)) {
-        ++actual;
-        muestra(obj);
-      }
-    }
-    /**
-     * @param {HTMLImageElement} obj */
-    function retrocede(obj) {
-      if (actual > 1) {
-        --actual;
-        muestra(obj);
-      }
-    }
-    /**
-     * @param {HTMLImageElement} obj */
-    function muestra(obj) {
-      obj.src = (obj.dataset.url + actual) + ".jpg";
-      location.hash = "#" + actual;
-    }
-    /**
-     * @param {HTMLImageElement} obj */
-    function siguiente(obj) {
-      if (obj.dataset.antes) {
-        location.href = encodeURI(obj.dataset.siguiente);
-      }
-    }
+    const fragmento = location.hash.trim().replace(/^\#/, "");
+    this.actual = fragmento ? parseInt(fragmento, 10) : 1;
+    this.urlanterior =
+      this.dataset.urlanterior ? encodeURI(this.dataset.urlanterior) : "";
+    this.textoanterior = cod(this.dataset.textoanterior);
+    this.urlsiguiente =
+      this.dataset.urlsiguiente ? encodeURI(this.dataset.urlsiguiente) : "";
+    this.textosiguiente = cod(this.dataset.textosiguiente);
   }
 });
