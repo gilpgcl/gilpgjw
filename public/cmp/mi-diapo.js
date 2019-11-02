@@ -41,13 +41,13 @@ customElements.define("mi-diapo", class extends HTMLImageElement {
           avanza(this);
           break;
         case "x":
-          antes(this);
+          siguiente(this);
       }
     });
     document.body.addEventListener("keyup", evt => {
       switch (evt.key) {
         case "Escape":
-          antes(this);
+          siguiente(this);
       }
     });
     document.addEventListener('touchstart', evt => {
@@ -74,7 +74,7 @@ customElements.define("mi-diapo", class extends HTMLImageElement {
             }
           } else if (yDiff > 0) {
             /* up swipe */
-            antes(this);
+            siguiente(this);
           } else {
             /* down swipe */
           }
@@ -110,9 +110,9 @@ customElements.define("mi-diapo", class extends HTMLImageElement {
 
     /**
      * @param {HTMLImageElement} obj */
-    function antes(obj) {
+    function siguiente(obj) {
       if (obj.dataset.antes) {
-        location.href = encodeURI(obj.dataset.antes);
+        location.href = encodeURI(obj.dataset.siguiente);
       }
     }
   }

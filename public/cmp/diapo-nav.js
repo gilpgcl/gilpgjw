@@ -2,13 +2,13 @@ import { cod, url, valida } from "../lib/util.js";
 
 document.head.innerHTML +=/*html*/
   `<style>
-  [is=diapo-nav] {
-    color: var(--color-letra);
-    background-color: var(--color-fondo);
-    position: absolute;
-    z-index: 2;
-  }
-</style>`;
+    [is=diapo-nav] {
+      z-index: 2;
+    }
+    [is=diapo-nav] p {
+      background-color: var(--color-fondo);
+    }
+  </style>`;
 export class DiapoNav extends HTMLElement {
   /** Busca un una instancia de esta clase.
    * @param {HTMLElement|Document} padre raíz de la búsqueda.
@@ -27,20 +27,34 @@ export class DiapoNav extends HTMLElement {
   }
   connectedCallback() {
     this.hidden = true;
+    this.classList.add("vista");
     this.innerHTML = /* html */
-      `<h1>${this.dataset.titulo}</h1>
-      <p><button onclick="this.parentNode.parentNode.hidden=true">Cerrar</button><p>
-      <p>
-        <a href="${url(this.dataset.urlanterior)}"><i
-          class="material-icons">navigate_before</i>${cod(this.dataset.textoanterior)}</a>
-      </p>
-      <p>
-        <a href="${url(this.dataset.urlmenu)}">${cod(this.dataset.textomenu)}</a>
-      </p>
-      <p>
-        <a href="${url(this.dataset.urlsiguiente)}">${cod(this.dataset.textosiguiente)}<i
-          class="material-icons">navigate_next</i></a>
-      </p>`;
+      `<header>
+        <div class="herramientas">
+          <button data-click="cerrar">
+            <i class="material-icons">close</i>
+          </button>
+        </div>
+        <h1>${this.dataset.titulo}</h1>
+      </header>
+      <div class="principal">
+        <p>
+          <a href="${url(this.dataset.urlanterior)}"><i
+            class="material-icons">navigate_before</i>${
+      cod(this.dataset.textoanterior)}</a>
+        </p>
+        <p>
+          <a href="${url(this.dataset.urlmenu)}">${
+      cod(this.dataset.textomenu)}</a>
+        </p>
+        <p>
+          <a href="${url(this.dataset.urlsiguiente)}">${
+      cod(this.dataset.textosiguiente)}<i
+            class="material-icons">navigate_next</i></a>
+        </p>
+      </div>`;
+    this.querySelector("button")
+      .addEventListener("click", () => this.hidden = true);
   }
 }
 
