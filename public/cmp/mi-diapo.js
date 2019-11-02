@@ -1,119 +1,135 @@
-import { DiapoNav } from "./diapo-nav.js";
-
-document.head.innerHTML +=/*html*/
+import { url, cod } from "../lib/htmlUtil.js";
+document.head.innerHTML += /* html */
   `<style>
-    [is=mi-diapo] {
+    mi-diapo {
       display: block;
+    }
+    mi-diapo img.ancha {
+      display: block;
+      height: 100%;
       margin-left: auto;
       margin-right: auto;
     }
-  </style>`;
-customElements.define("mi-diapo", class extends HTMLImageElement {
-  connectedCallback() {
-    const fragmento = location.hash.trim().replace(/^\#/, "");
-    let actual = fragmento ? parseInt(fragmento, 10) : 1;
-    let xDown = null;
-    let yDown = null;
-    muestra(this);
-    window.addEventListener("resize", resize.bind(null, this));
-    resize(this);
-    this.addEventListener("click",
-      () => DiapoNav.get(document, this.dataset.nav).hidden = false);
-    /**
-     * @param {HTMLImageElement} obj */
-    function resize(obj) {
-      if (obj.parentElement.clientHeight >= obj.parentElement.clientWidth) {
-        // vertical.
-        obj.style.width = "100%";
-        obj.style.height = "";
-      } else {
-        // horizontal
-        obj.style.width = "";
-        obj.style.height = "100%";
-      }
+    mi-diapo img.alta {
+      display: block;
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
     }
+    mi-diapo .diapo-nav .vista {
+      z-index: 2;
+    }
+    mi-diapo .diapo-nav p {
+      background-color: var(--color-fondo);
+    }
+  </style>`;
+class MiDiapo extends HTMLElement {
+  connectedCallback() {
+    this.urlanterior = url(this.dataset.urlanterior);
+    this.textoanterior = cod(this.dataset.textoanterior);
+    this.urlmenu = url(this.dataset.urlmenu);
+    this.textomenu = cod(this.dataset.textomenu);
+    this.urlsiguiente = url(this.dataset.urlsiguiente);
+    this.textosiguiente = cod(this.dataset.textosiguiente);
+    this.innerHTML = /* html */
+      `<div class="vista">
+        <img>
+      </div>
+      <div class="diapo-nav" hidden>
+        <div class="vista">
+          <header>
+            <div class="herramientas">
+              <button data-click="cierra">
+                <i class="material-icons">close</i>
+              </button>
+            </div>
+            <h1>${this.dataset.titulo}</h1>
+          </header>
+          <nav class="principal">`
+      + (this.urlanterior ? /*html*/
+        `   <p>
+              <a href="${url(this.dataset.urlanterior)}"><i
+                class="material-icons">navigate_before</i>${
+        cod(this.dataset.textoanterior)}</a>
+            </p>`: "")
+      + (this.urlmenu ? /*html*/
+        `   <p>
+              <a href="${url(this.dataset.urlmenu)}">${
+        cod(this.dataset.textomenu)}</a>
+            </p>`: "")
+      + (this.urlsiguiente ? /*html*/
+        `   <p>
+              <a href="${url(this.dataset.urlsiguiente)}">${
+        cod(this.dataset.textosiguiente)}<i
+                class="material-icons">navigate_next</i></a>
+            </p>`: "")
+      + /*html*/
+      `   </nav>
+        </div>
+      </div>`;
+    const fragmento = location.hash.trim().replace(/^\#/, "");
+    this.actual = fragmento ? parseInt(fragmento, 10) : 1;
+    this.img = this.querySelector("img");
+    this.nav = this.querySelector("nav");
+    if (this.nav) {
+      this.addEventListener("click", () => this.nav.hidden = false);
+    }
+    window.addEventListener("resize", this.resize.bind(this));
+    this.muestra();
+    this.resize();
     document.addEventListener("keydown", evt => {
       switch (evt.key) {
         case "ArrowLeft":
-          retrocede(this);
+          this.retrocede();
           break;
         case "ArrowRight":
-          avanza(this);
+          this.avanza();
           break;
         case "x":
-          siguiente(this);
+          this.siguiente();
       }
     });
     document.body.addEventListener("keyup", evt => {
       switch (evt.key) {
         case "Escape":
-          siguiente(this);
+          this.siguiente();
       }
     });
-    document.addEventListener('touchstart', evt => {
-      const toquInicial = evt.touches[0];
-      xDown = toquInicial.clientX;
-      yDown = toquInicial.clientY;
-    });
-    document.addEventListener('touchmove', evt => {
-      if (xDown && yDown) {
-        var xUp = evt.touches[0].clientX;
-        var yUp = evt.touches[0].clientY;
-
-        var xDiff = xDown - xUp;
-        var yDiff = yDown - yUp;
-
-        if (Math.abs(xDiff) + Math.abs(yDiff) > 150) { //to deal with to short swipes
-          if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-            if (xDiff > 70) {
-              /* left swipe */
-              avanza(this);
-            } else {
-              /* right swipe */
-              retrocede(this);
-            }
-          } else if (yDiff > 0) {
-            /* up swipe */
-            siguiente(this);
-          } else {
-            /* down swipe */
-          }
-          /* reset values */
-          xDown = null;
-          yDown = null;
-        }
-      }
-    });
-
-    /**
-     * @param {HTMLImageElement} obj */
-    function avanza(obj) {
-      if (actual < parseInt(obj.dataset.total, 10)) {
-        ++actual;
-        muestra(obj);
-      }
-    }
-    /**
-     * @param {HTMLImageElement} obj */
-    function retrocede(obj) {
-      if (actual > 1) {
-        --actual;
-        muestra(obj);
-      }
-    }
-    /**
-     * @param {HTMLImageElement} obj */
-    function muestra(obj) {
-      obj.src = (obj.dataset.url + actual) + ".jpg";
-      location.hash = "#" + actual;
-    }
-
-    /**
-     * @param {HTMLImageElement} obj */
-    function siguiente(obj) {
-      if (obj.dataset.antes) {
-        location.href = encodeURI(obj.dataset.siguiente);
-      }
+    document.addEventListener("swipeizquierdo", this.avanza.bind(this));
+    document.addEventListener("swipederecho", this.retrocede.bind(this));
+    document.addEventListener("swipearriba", this.siguiente.bind(this));
+  }
+  /** @todo Mejorar el algoritmo. */
+  resize() {
+    if (document.documentElement.clientHeight
+      >= document.documentElement.clientWidth) {
+      this.img.classList.add("alta");
+      this.img.classList.remove("ancha");
+    } else {
+      this.img.classList.add("ancha");
+      this.img.classList.remove("alta");
     }
   }
-}, { extends: "img" });
+  avanza() {
+    if (this.actual < parseInt(this.dataset.total, 10)) {
+      ++this.actual;
+      this.muestra();
+    }
+  }
+  retrocede() {
+    if (this.actual > 1) {
+      --this.actual;
+      this.muestra();
+    }
+  }
+  muestra() {
+    this.img.src = (this.dataset.url + this.actual) + ".jpg";
+    location.hash = "#" + this.actual;
+  }
+  siguiente() {
+    if (this.dataset.urlsiguiente) {
+      location.href = encodeURI(this.dataset.urlsiguiente);
+    }
+  }
+}
+customElements.define("mi-diapo", MiDiapo);

@@ -1,5 +1,5 @@
-import { cod } from "../lib/util.js";
 import { MiNav } from "./mi-nav.js";
+import { cod } from "../lib/htmlUtil.js";
 
 customElements.define("header-titulo", class extends HTMLElement {
   connectedCallback() {

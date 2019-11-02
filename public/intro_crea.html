@@ -13,22 +13,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="lib/polycustom.js"></script>
+    <script type="module" src="lib/swipe.js"></script>
     <script type="module" src="cmp/mi-diapo.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/material-icons.css">
   </head>
   <body>
-    <div class="vista">
-      <img is="mi-diapo" data-nav="#nav" data-url="img/intro/" data-total="89"
-        data-siguiente="intro_deploy_jelastic.html">
-    </div>
-    <nav id="nav" is="diapo-nav"
+    <mi-diapo" data-nav="#nav" data-url="img/intro/" data-total="89"
       data-titulo="Crea el Proyecto intro, Pruébalo y Súbelo a GitHub"
       data-urlanterior="intro_archivos_xml.html"
       data-textoanterior="Estructura de los archivos XML"
       data-urlmenu="intro.html" data-textomenu="intro"
       data-urlsiguiente="intro_deploy_jelastic.html"
-      data-textosiguiente="Despliga el proyecto en Jelastic"></nav>
-  </body>
+      data-textosiguiente="Despliga el proyecto en Jelastic">
+      </mi-diapo>
 </html>
