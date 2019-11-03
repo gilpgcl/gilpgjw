@@ -5,6 +5,7 @@ import { catchas, validaResponse } from "../lib/util.js";
 /** Nodo del descriptor de proyecto.
  * @typedef {Object} Nodo
  * @property {string} nombre
+ * @property {string=} tipo
  * @property {number=} orden
  * @property {string=} url
  * @property {Nodo[]=} archivos */
@@ -12,6 +13,7 @@ import { catchas, validaResponse } from "../lib/util.js";
 /** Descriptor de archivo.
 * @typedef {Object} Archivo
 * @property {string} nombre
+* @property {string=} tipo
 * @property {string} url*/
 
 customElements.define("mi-proyecto", class extends HTMLElement {
@@ -97,6 +99,7 @@ customElements.define("mi-proyecto", class extends HTMLElement {
       nodo.orden = this.orden++;
       this.archivos.push({
         nombre: nodo.nombre,
+        tipo: nodo.tipo,
         url: encodeURI(url + "/" + nodo.nombre)
       });
     }
@@ -125,19 +128,24 @@ customElements.define("mi-proyecto", class extends HTMLElement {
     this.muestraSiguiente();
   }
   muestraArchivo() {
-    document.title = this.archivos[this.actual].nombre + "- " + this.dataset.titulo;
-    this.título.value = this.archivos[this.actual].nombre;
-    this.main.textContent = /* html */
+    const archivo = this.archivos[this.actual];
+    document.title = archivo.nombre + " - " + this.dataset.titulo;
+    this.título.value = archivo.nombre;
+    this.main.innerHTML = /* html */
       `<progress max="100">Cargando…</progress>`;
     catchas(async () => {
-      const respuesta = await fetch(this.archivos[this.actual].url);
+      const respuesta = await fetch(archivo.url);
       validaResponse(respuesta);
       const texto = await respuesta.text();
       while (this.main.firstChild) {
         this.main.removeChild(this.main.firstChild);
       }
       const pre = this.main.appendChild(document.createElement("pre"));
-      pre.textContent = texto;
+      const code = pre.appendChild(document.createElement("code"));
+      code.className = "language-" + archivo.tipo;
+      code.textContent = texto;
+      // @ts-ignore
+      Prism.highlightAll();
     });
   }
   muestraPortada() {
@@ -153,7 +161,7 @@ customElements.define("mi-proyecto", class extends HTMLElement {
   creaNodo(nodo, ruta) {
     if (nodo.archivos) {
       const nuevaRuta = ruta + "/" + nodo.nombre;
-      let resultado = "<li>" + nodo.nombre + "<ul>";
+      let resultado = "<li><p>" + nodo.nombre + "</p><ul>";
       for (const archivo of nodo.archivos) {
         resultado += this.creaNodo(archivo, nuevaRuta);
       }
@@ -161,7 +169,7 @@ customElements.define("mi-proyecto", class extends HTMLElement {
       return resultado;
     } else {
       const resultado = /* html */
-        `<li><a href="#${nodo.orden}">${nodo.nombre}</a></li>`;
+        `<li><p><a href="#${nodo.orden}">${nodo.nombre}</a></p></li>`;
       return resultado;
     }
   }

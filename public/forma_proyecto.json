@@ -6,21 +6,25 @@
       "nombre": "Web Pages",
       "archivos": [
         {
-          "nombre": "Web-INF",
+          "nombre": "WEB-INF",
           "archivos": [
             {
-              "nombre": "beans.xml"
+              "nombre": "beans.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "payara-web.xml"
+              "nombre": "payara-web.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "web.xml"
+              "nombre": "web.xml",
+              "tipo": "xml"
             }
           ]
         },
         {
-          "nombre": "index.xhtml"
+          "nombre": "index.xhtml",
+          "tipo": "html"
         }
       ]
     },
@@ -31,7 +35,8 @@
           "nombre": "net.ramptors.forma",
           "archivos": [
             {
-              "nombre": "CtrlSaludo.java"
+              "nombre": "CtrlSaludo.java",
+              "tipo": "java"
             }
           ]
         }

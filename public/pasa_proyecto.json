@@ -6,16 +6,19 @@
       "nombre": "Web Pages",
       "archivos": [
         {
-          "nombre": "Web-INF",
+          "nombre": "WEB-INF",
           "archivos": [
             {
-              "nombre": "beans.xml"
+              "nombre": "beans.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "payara-web.xml"
+              "nombre": "payara-web.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "web.xml"
+              "nombre": "web.xml",
+              "tipo": "xml"
             }
           ]
         },
@@ -26,7 +29,8 @@
               "nombre": "css",
               "archivos": [
                 {
-                  "nombre": "estilos.css"
+                  "nombre": "estilos.css",
+                  "tipo": "css"
                 }
               ]
             },
@@ -34,20 +38,24 @@
               "nombre": "ezcomp",
               "archivos": [
                 {
-                  "nombre": "mi-footer.xhtml"
+                  "nombre": "mi-footer.xhtml",
+                  "tipo": "html"
                 }
               ]
             }
           ]
         },
         {
-          "nombre": "index.xhtml"
+          "nombre": "index.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "pasatiempo.xhtml"
+          "nombre": "pasatiempo.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "pasatiempoNuevo.xhtml"
+          "nombre": "pasatiempoNuevo.xhtml",
+          "tipo": "html"
         }
       ]
     },
@@ -58,22 +66,28 @@
           "nombre": "net.ramptors.pasa",
           "archivos": [
             {
-              "nombre": "Config.java"
+              "nombre": "Config.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlPasatiempo.java"
+              "nombre": "CtrlPasatiempo.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlPasatiempoNuevo.java"
+              "nombre": "CtrlPasatiempoNuevo.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlPasatiempos.java"
+              "nombre": "CtrlPasatiempos.java",
+              "tipo": "java"
             },
             {
-              "nombre": "DaoPasatiempo.java"
+              "nombre": "DaoPasatiempo.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Pasatiempo.java"
+              "nombre": "Pasatiempo.java",
+              "tipo": "java"
             }
           ]
         },
@@ -81,7 +95,8 @@
           "nombre": "net.ramptors.web",
           "archivos": [
             {
-              "nombre": "Mensajes.java"
+              "nombre": "Mensajes.java",
+              "tipo": "java"
             }
           ]
         }
@@ -94,7 +109,8 @@
           "nombre": "META-INF",
           "archivos": [
             {
-              "nombre": "persistence.xml"
+              "nombre": "persistence.xml",
+              "tipo": "xml"
             }
           ]
         }

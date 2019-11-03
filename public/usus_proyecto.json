@@ -6,24 +6,28 @@
       "nombre": "Web Pages",
       "archivos": [
         {
-          "nombre": "Web-INF",
+          "nombre": "WEB-INF",
           "archivos": [
             {
               "nombre": "plantillas",
               "archivos": [
                 {
-                  "nombre": "plantilla.xhtml"
+                  "nombre": "plantilla.xhtml",
+                  "tipo": "html"
                 }
               ]
             },
             {
-              "nombre": "beans.xml"
+              "nombre": "beans.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "payara-web.xml"
+              "nombre": "payara-web.xml",
+              "tipo": "xml"
             },
             {
-              "nombre": "web.xml"
+              "nombre": "web.xml",
+              "tipo": "xml"
             }
           ]
         },
@@ -34,16 +38,20 @@
               "nombre": "css",
               "archivos": [
                 {
-                  "nombre": "colores.css"
+                  "nombre": "colores.css",
+                  "tipo": "css"
                 },
                 {
-                  "nombre": "estilos.css"
+                  "nombre": "estilos.css",
+                  "tipo": "css"
                 },
                 {
-                  "nombre": "mi-footer.css"
+                  "nombre": "mi-footer.css",
+                  "tipo": "css"
                 },
                 {
-                  "nombre": "mi-navegacion.css"
+                  "nombre": "mi-navegacion.css",
+                  "tipo": "css"
                 }
               ]
             },
@@ -51,22 +59,28 @@
               "nombre": "ezcomp",
               "archivos": [
                 {
-                  "nombre": "campo.xhtml"
+                  "nombre": "campo.xhtml",
+                  "tipo": "html"
                 },
                 {
-                  "nombre": "herramientas-detalle.xhtml"
+                  "nombre": "herramientas-detalle.xhtml",
+                  "tipo": "html"
                 },
                 {
-                  "nombre": "herramientas-maestras.xhtml"
+                  "nombre": "herramientas-maestras.xhtml",
+                  "tipo": "html"
                 },
                 {
-                  "nombre": "mensajes.xhtml"
+                  "nombre": "mensajes.xhtml",
+                  "tipo": "html"
                 },
                 {
-                  "nombre": "mi-footer.xhtml"
+                  "nombre": "mi-footer.xhtml",
+                  "tipo": "html"
                 },
                 {
-                  "nombre": "mi-navegacion.xhtml"
+                  "nombre": "mi-navegacion.xhtml",
+                  "tipo": "html"
                 }
               ]
             }
@@ -76,27 +90,34 @@
           "nombre": "usuarios",
           "archivos": [
             {
-              "nombre": "edicion.xhtml"
+              "nombre": "edicion.xhtml",
+              "tipo": "html"
             },
             {
-              "nombre": "index.xhtml"
+              "nombre": "index.xhtml",
+              "tipo": "html"
             }
           ]
         },
         {
-          "nombre": "errorIniciandoSesion.xhtml"
+          "nombre": "errorIniciandoSesion.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "index.xhtml"
+          "nombre": "index.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "iniciaSesion.xhtml"
+          "nombre": "iniciaSesion.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "invitados.xhtml"
+          "nombre": "invitados.xhtml",
+          "tipo": "html"
         },
         {
-          "nombre": "sesion.xhtml"
+          "nombre": "sesion.xhtml",
+          "tipo": "html"
         }
       ]
     },
@@ -107,37 +128,48 @@
           "nombre": "net.ramptors.usus",
           "archivos": [
             {
-              "nombre": "Config.java"
+              "nombre": "Config.java",
+              "tipo": "java"
             },
             {
-              "nombre": "ConvertidorDePasatiempo.java"
+              "nombre": "ConvertidorDePasatiempo.java",
+              "tipo": "java"
             },
             {
-              "nombre": "ConvertidorDeRol.java"
+              "nombre": "ConvertidorDeRol.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlPasatiempos.java"
+              "nombre": "CtrlPasatiempos.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlRoles.java"
+              "nombre": "CtrlRoles.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlSesion.java"
+              "nombre": "CtrlSesion.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlUsuario.java"
+              "nombre": "CtrlUsuario.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlUsuarios.java"
+              "nombre": "CtrlUsuarios.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Pasatiempo.java"
+              "nombre": "Pasatiempo.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Rol.java"
+              "nombre": "Rol.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Usuario.java"
+              "nombre": "Usuario.java",
+              "tipo": "java"
             }
           ]
         },
@@ -145,49 +177,64 @@
           "nombre": "net.ramptors.web",
           "archivos": [
             {
-              "nombre": "ConvertidorDeEntidad.java"
+              "nombre": "ConvertidorDeEntidad.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlEdicion.java"
+              "nombre": "CtrlEdicion.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlFiltro.java"
+              "nombre": "CtrlFiltro.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlListado.java"
+              "nombre": "CtrlListado.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlListadoBase.java"
+              "nombre": "CtrlListadoBase.java",
+              "tipo": "java"
             },
             {
-              "nombre": "CtrlSalir.java"
+              "nombre": "CtrlSalir.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Dao.java"
+              "nombre": "Dao.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Encriptador.java"
+              "nombre": "Encriptador.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Entidad.java"
+              "nombre": "Entidad.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Error.java"
+              "nombre": "Error.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Imagen.java"
+              "nombre": "Imagen.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Mensajes.java"
+              "nombre": "Mensajes.java",
+              "tipo": "java"
             },
             {
-              "nombre": "Parts.java"
+              "nombre": "Parts.java",
+              "tipo": "java"
             },
             {
-              "nombre": "ReemplazoDeMensajes.java"
+              "nombre": "ReemplazoDeMensajes.java",
+              "tipo": "java"
             },
             {
-              "nombre": "SpImagen.java"
+              "nombre": "SpImagen.java",
+              "tipo": "java"
             }
           ]
         }
@@ -200,12 +247,14 @@
           "nombre": "META-INF",
           "archivos": [
             {
-              "nombre": "persistence.xml"
+              "nombre": "persistence.xml",
+              "tipo": "xml"
             }
           ]
         },
         {
-          "nombre": "ValidationMessages.properties"
+          "nombre": "ValidationMessages.properties",
+          "tipo": "properties"
         }
       ]
     }
