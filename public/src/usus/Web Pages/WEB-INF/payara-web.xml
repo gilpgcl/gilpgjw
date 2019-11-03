@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE payara-web-app PUBLIC
+ "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN"
+ "https://docs.payara.fish/schemas/payara-web-app_4.dtd">
+<!-- Los roles de la aplicación están definidos aquí. En el archivo web.xml y en
+las vistas se les permite o prohibe hacer ciertas cosas. Cada usuario que entra
+al sistema se asocia con un rol de acuerdo a las tablas de usuarios y grupos.-->
+<payara-web-app error-url="">
+  <!-- Se asocian roles con grupos.
+  Un rol es un grupo de usuarios de la aplicación con ciertos derechos de acceso y uso
+  de los recursos de la aplicación.
+  Un grupo es un conjunto de usuarios registrados en el servidor. En este cado se usa
+  una tabla de usuarios en relación muchos a muchos con una tabla de grupos. -->
+  <security-role-mapping>
+    <!-- Elegimos que el nombre de los roles coincida con los nombres de grupos, pero
+    no siempre es así. -->
+    <role-name>Administrador</role-name>
+    <group-name>Administrador</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>Cliente</role-name>
+    <group-name>Cliente</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>Invitado</role-name>
+    <group-name>Invitado</group-name>
+  </security-role-mapping>
+  <class-loader delegate="true"/>
+  <parameter-encoding default-charset="UTF-8"/>
+</payara-web-app>

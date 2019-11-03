@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<!-- Esta es una plantilla. Las páginas del sitio la utilizan para no escribir
+varias veces el código que se repite en las página de la aplicación. Las partes
+del sitio que no se parecen, se indican con variables y con elementos insert,
+que deben ser proporcionados por las páginas que usan esta plantilla y son
+llamadas páginas clientes. -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp">
+  <h:head>
+    <meta charset="UTF-8"/>
+    <!-- El valor de la variable título debe ser proporcionado por la página
+    cliente. -->
+    <title>#{título} - Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"/>
+    <link jsf:name="css/colores.css"/>
+    <link jsf:name="css/estilos.css"/>
+  </h:head>
+  <h:body>
+    <ui:insert name="form">
+      <form jsf:prependId="false" class="vista" enctype="multipart/form-data">
+        <header>
+          <ui:insert name="herramientas"/>
+          <h1>#{título}</h1>
+        </header>
+        <div class="principal">
+          <ezcomp:mensajes/>
+          <ui:insert name="principal"/>
+        </div>
+        <ezcomp:mi-footer></ezcomp:mi-footer>
+        <ui:insert name="navegacion">
+          <ezcomp:mi-navegacion></ezcomp:mi-navegacion>
+        </ui:insert>
+      </form>
+    </ui:insert>
+  </h:body>
+</html>

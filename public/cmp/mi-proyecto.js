@@ -1,3 +1,4 @@
+import { MiFooter as _ } from "./mi-footer.js";
 import { cod } from "../lib/htmlUtil.js";
 import { catchas, validaResponse } from "../lib/util.js";
 
@@ -40,10 +41,11 @@ customElements.define("mi-proyecto", class extends HTMLElement {
         `<p><a href="${urlmenu}">${textomenu}</a></p>` : "")
       +  /*html*/
       ` <p class="siguiente">
-              <a><i class="material-icons">navigate_next</i><span></span></a>
+              <a><span></span><i class="material-icons">navigate_next</i></a>
             </p>
           </nav>
         </aside>
+        <footer is="mi-footer"></footer>
       </div>`;
     const fragmento = location.hash.trim().replace(/^\#/, "");
     this.actual = fragmento ? parseInt(fragmento, 10) : -1;
@@ -60,6 +62,11 @@ customElements.define("mi-proyecto", class extends HTMLElement {
     this.anterior = this.querySelector(".anterior");
     /** @type {HTMLParagraphElement} */
     this.siguiente = this.querySelector(".siguiente");
+    addEventListener("hashchange", () => {
+      const fragmento = location.hash.trim().replace(/^\#/, "");
+      this.actual = fragmento ? parseInt(fragmento, 10) : -1;
+      this.muestra();
+    });
     this.cargaProyecto();
   }
   cargaProyecto() {
@@ -118,18 +125,23 @@ customElements.define("mi-proyecto", class extends HTMLElement {
     this.muestraSiguiente();
   }
   muestraArchivo() {
+    document.title = this.archivos[this.actual].nombre + "- " + this.dataset.titulo;
     this.título.value = this.archivos[this.actual].nombre;
     this.main.textContent = /* html */
       `<progress max="100">Cargando…</progress>`;
     catchas(async () => {
-      const respuesta = await fetch(this.url);
+      const respuesta = await fetch(this.archivos[this.actual].url);
       validaResponse(respuesta);
       const texto = await respuesta.text();
+      while (this.main.firstChild) {
+        this.main.removeChild(this.main.firstChild);
+      }
       const pre = this.main.appendChild(document.createElement("pre"));
       pre.textContent = texto;
     });
   }
   muestraPortada() {
+    document.title = this.dataset.titulo;
     this.título.value = this.dataset.titulo;
     this.main.innerHTML =
       "<ul>" + this.creaNodo(this.raíz, this.raíz.url) + "<ul>";
@@ -148,44 +160,47 @@ customElements.define("mi-proyecto", class extends HTMLElement {
       resultado += "</ul></li>";
       return resultado;
     } else {
-      return /* html */
-      `<li><a href="#${nodo.orden}">${nodo.nombre}</a></li>`;
+      const resultado = /* html */
+        `<li><a href="#${nodo.orden}">${nodo.nombre}</a></li>`;
+      return resultado;
     }
   }
   muestraAnterior() {
     let a = this.anterior.querySelector("a");
+    let span = this.anterior.querySelector("span");
     if (this.actual === -1) {
       if (this.urlanterior) {
         this.anterior.hidden = false;
         a.href = this.urlanterior;
-        a.innerText = this.textoanterior;
+        span.innerText = this.textoanterior;
       } else {
         this.anterior.hidden = true;
       }
     } else if (this.actual === 0) {
       this.anterior.hidden = false;
       a.href = "#-1";
-      a.innerText = this.dataset.titulo;
+      span.innerText = this.dataset.titulo;
     } else {
       this.anterior.hidden = false;
       a.href = "#" + (this.actual - 1);
-      a.innerText = this.archivos[this.actual - 1].nombre;
+      span.innerText = this.archivos[this.actual - 1].nombre;
     }
   }
   muestraSiguiente() {
-    let a = this.anterior.querySelector("a");
+    let a = this.siguiente.querySelector("a");
+    let span = this.siguiente.querySelector("span");
     if (this.actual === this.archivos.length - 1) {
       if (this.urlsiguiente) {
         this.siguiente.hidden = false;
         a.href = this.urlsiguiente;
-        a.innerText = this.textosiguiente;
+        span.innerText = this.textosiguiente;
       } else {
-        this.anterior.hidden = true;
+        this.siguiente.hidden = true;
       }
     } else if (this.actual < this.archivos.length - 1) {
-      this.anterior.hidden = false;
+      this.siguiente.hidden = false;
       a.href = "#" + (this.actual + 1);
-      a.innerText = this.archivos[this.actual + 1].nombre;
+      span.innerText = this.archivos[this.actual + 1].nombre;
     }
   }
 });

@@ -1,4 +1,6 @@
+import { MiFooter as _ } from "./mi-footer.js";
 import { cod } from "../lib/htmlUtil.js";
+import { enlazaAcciones } from "../lib/databind.js";
 document.head.innerHTML += /* html */
   `<style>
     mi-diapo {
@@ -19,7 +21,7 @@ document.head.innerHTML += /* html */
     mi-diapo .diapo-nav .vista {
       z-index: 2;
     }
-    mi-diapo .diapo-nav p {
+    mi-diapo .diapo-nav p, mi-diapo [is=mi-footer] {
       background-color: var(--color-fondo);
     }
   </style>`;
@@ -35,7 +37,7 @@ class MiDiapo extends HTMLElement {
       this.dataset.urlsiguiente ? encodeURI(this.dataset.urlsiguiente) : "";
     this.textosiguiente = cod(this.dataset.textosiguiente);
     this.innerHTML = /* html */
-      `<div class="vista">
+      `<div class="vista base">
         <img>
       </div>
       <div class="diapo-nav" hidden>
@@ -63,17 +65,21 @@ class MiDiapo extends HTMLElement {
             </p>`: "")
       + /*html*/
       `   </nav>
+          <footer is="mi-footer"></footer>
         </div>
       </div>`;
+      enlazaAcciones(this, this);
     const fragmento = location.hash.trim().replace(/^\#/, "");
     this.actual = fragmento ? parseInt(fragmento, 10) : 1;
     this.total = this.dataset.total ? parseInt(this.dataset.total, 10) : 1000;
     this.url = this.dataset.url || "";
     this.extensión = this.dataset.extension || ".jpg";
+    const base = this.querySelector(".base");
     this.img = this.querySelector("img");
-    this.nav = this.querySelector("nav");
+    /** @type {HTMLElement} */
+    this.nav = this.querySelector(".diapo-nav");
     if (this.nav) {
-      this.addEventListener("click", () => this.nav.hidden = false);
+      base.addEventListener("click", () => this.nav.hidden = false);
     }
     window.addEventListener("resize", this.resize.bind(this));
     this.muestra();
@@ -99,6 +105,9 @@ class MiDiapo extends HTMLElement {
     document.addEventListener("swipeizquierdo", this.avanza.bind(this));
     document.addEventListener("swipederecho", this.retrocede.bind(this));
     document.addEventListener("swipearriba", this.siguiente.bind(this));
+  }
+  cierra() {
+    this.nav.hidden = true;
   }
   /** @todo Mejorar el algoritmo. */
   resize() {

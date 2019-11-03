@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Configuración de Realm en Payara - usus - Introducción a Java Web
+    </title>
+
+    <script type="module" src="lib/registraServiceWorker.js"></script>
+
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/polycustom.js"></script>
+    <script type="module" src="cmp/header-titulo.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <link rel="stylesheet" href="css/colores.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+  </head>
+  <body class="vista">
+    <header is="header-titulo"
+      data-titulo="Configuración de Realm en Payara"></header>
+    <div class="principal">
+      <ol>
+        <li>Desde Netbeans selecciona la pestaña <q>Services</q></li>
+        <li>Abre la rama <q>Servers</q></li>
+        <li>Clic derecho en <q>Payara Server</q></li>
+        <li>Selecciona <q>Start</q></li>
+        <li>
+          Cuando el servidor haya levantado, haz clic derecho otra vez en
+          <q>Payara Server</q>
+        </li>
+        <li>Selecciona <q>View Domain Admin Console</q></li>
+        <li>
+          Cuando abre la consola de Payara, en el árbol de la izquierda
+          selecciona la rama
+          <q>Configurations &gt; erver-config &gt; Security &gt; Realms</q>
+        </li>
+        <li>Clic en <q>New&hellip;</q></li>
+        <li>
+          Introduce los siguientes datos:
+          <dl>
+            <dt>Name</dt>
+            <dd>bd</dd>
+            <dt>Class Name</dt>
+            <dd>com.sun.enterprise.security.ee.auth.realm.jdbc.JDBCRealm</dd>
+            <dt>JAAS Context</dt>
+            <dd>jdbcRealm</dd>
+            <dt>JNDI</dt>
+            <dd>jdbc/pruebas</dd>
+            <dt>User Table</dt>
+            <dd>USUARIO</dd>
+            <dt>User Name Column</dt>
+            <dd>USU_CUE</dd>
+            <dt>Password Column</dt>
+            <dd>USU_MATCH</dd>
+            <dt>Group Table</dt>
+            <dd>USUARIO_ROL</dd>
+            <dt>Group Table User Name</dt>
+            <dd>USU_CUE</dd>
+            <dt>Group Name Column</dt>
+            <dd>ROL_ID</dd>
+          </dl>
+          Clic en <q>OK</q> arriba a la derecha.
+        </li>
+        <li>Reinicia el servidor.</li>
+      </ol>
+      <aside>
+        <h2>Enlaces</h2>
+        <nav>
+          <p>
+            <a href="usus_bd_sql.html">
+              <i class="material-icons">navigate_before</i>bd.sql</a>
+          </p>
+          <p><a href="usus.html">usus</a></p>
+          <p>
+            <a href="usus_proyecto.html">Código del Proyecto usus<i
+                class="material-icons">navigate_next</i></a>
+          </p>
+        </nav>
+      </aside>
+      <footer is="mi-footer"></footer>
+    </div>
+  </body>
+</html>

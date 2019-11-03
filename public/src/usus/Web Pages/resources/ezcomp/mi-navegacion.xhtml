@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE htm>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+  <cc:interface>
+  </cc:interface>
+  <cc:implementation>
+    <link jsf:name="css/mi-navegacion.css"/>
+    <div class="mi-navegacion">
+      <a jsf:outcome="/index">
+        <i class="material-icons">home</i><br/>
+        Inicio
+      </a>
+      <a jsf:outcome="/usuarios/index" jsf:rendered=
+         "#{facesContext.externalContext.isUserInRole('Administrador')}">
+        <i class="material-icons">build</i><br/>
+        Administradores
+      </a>
+      <a jsf:outcome="/invitados" jsf:rendered=
+         "#{facesContext.externalContext.isUserInRole('Invitado')}">
+        <i class="material-icons">build</i><br/>
+        Invitados
+      </a>
+      <a jsf:outcome="/sesion"
+         jsf:rendered="#{!empty request.userPrincipal.name}">
+        <i class="material-icons">account_circle</i><br/>
+        Sesión
+      </a>
+      <a jsf:outcome="/sesion"
+         jsf:rendered="#{empty request.userPrincipal.name}">
+        <i class="material-icons">vpn_key</i><br/>
+          Iniciar Sesión
+      </a>
+    </div>
+  </cc:implementation>
+</html>

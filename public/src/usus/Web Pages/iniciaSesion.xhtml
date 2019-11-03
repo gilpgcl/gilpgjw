@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp">
+  <!-- Esta vista se muestra cuando se pretende entrar a una página protegida en
+  el archivo "web.xml". También en ese archivo está configurado que se debe usar
+  esta vista para solicitar el usuario y la contraseña. -->
+  <body>
+    <ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+      <ui:param name="título" value="Inicia Sesión"/>
+      <ui:define name="form">
+        <!-- El valor de action debe ser "j_security_check" para que funcione el
+        reconocimiento de usuarios. -->
+        <form method="post" action="j_security_check" class="vista">
+          <header><h1>Iniciar Sesión</h1></header>
+          <div class="principal">
+            <fieldset>
+              <legend>Cue</legend>
+              <!-- Campo de cuenta. El valor de name debe ser "j_username" para
+              que funcione el reconocimiento de usuarios. -->
+              <input type="text" name="j_username"/>
+            </fieldset>
+            <fieldset>
+              <legend>Match</legend>
+              <!-- Campo de contraseña. El valor de name debe ser "j_password"
+              para que funcione el reconocimiento de usuarios. -->
+              <input id="j_password" type="password" name="j_password"/>
+            </fieldset>
+            <p><input type="submit" value="Iniciar Sesión"/></p>
+          </div>
+          <ezcomp:mi-footer></ezcomp:mi-footer>
+        </form>
+      </ui:define>
+    </ui:composition>
+  </body>
+</html>

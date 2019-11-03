@@ -12,55 +12,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="lib/polycustom.js"></script>
-    <script type="module" src="cmp/header-titulo.js"></script>
-    <script type="module" src="cmp/mi-footer.js"></script>
+    <script type="module" src="cmp/mi-proyecto.js"></script>
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/material-icons.css">
   </head>
-  <body class="vista">
-    <header is="header-titulo" data-titulo="Código del Proyecto intro"></header>
-    <div class="principal">
-      <p>
-        A continuación se muestran los archivos generados por Netbeans, pero se
-        les han agregado comentarios que los explican.
-      </p>
-      <ul>
-        <li>
-          intro
-          <ul>
-            <li>
-              Web Pages
-              <ul>
-                <li>
-                  WEB-INF
-                  <ul>
-                    <li><a href="intro_web_xml.html">web.xml</a></li>
-                  </ul>
-                </li>
-                <li><a href="intro_index_xhtml.html">index.xhtml</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <aside>
-        <h2>Enlaces</h2>
-        <nav>
-          <p>
-            <a href="intro_deploy_jelastic.html">
-              <i class="material-icons">navigate_before</i>Despliga el proyecto
-              en
-              Jelastic</a>
-          </p>
-          <p><a href="intro.html">intro</a></p>
-          <p>
-            <a href="intro_web_xml.html">web.xml<i
-                class="material-icons">navigate_next</i></a>
-          </p>
-        </nav>
-      </aside>
-      <footer is="mi-footer"></footer>
-    </div>
+  <body>
+    <mi-proyecto data-url="intro_proyecto.json"
+      data-titulo="Código del proyecto intro"
+      data-urlanterior="intro_deploy_jelastic.html"
+      data-textoanterior="Despliega intro en Jelastic" data-urlmenu="intro.html"
+      data-textomenu="intro" data-urlsiguiente="intro_generado.html"
+      data-textosiguiente="Ver código generado por JSF"></mi-proyecto>
   </body>
 </html>

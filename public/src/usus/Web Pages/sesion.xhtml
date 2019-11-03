@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+  <body>
+    <ui:composition template="./WEB-INF/plantillas/plantilla.xhtml">
+      <ui:param name="título" value="Sesión"/>
+      <ui:define name="herramientas">
+        <div class="herramientas">
+          <span class="divisor"></span>
+          <button type="submit" jsf:action="#{ctrlSalir.salir('/index')}">
+            Terminar Sesión
+          </button>
+        </div>
+      </ui:define>
+      <ui:define name="principal">
+        <fieldset>
+          <legend>Cue</legend>
+          #{request.userPrincipal.name}
+        </fieldset>
+        <fieldset>
+          <legend>Nombre</legend>
+          #{ctrlSesion.modelo.nombre}
+        </fieldset>
+        <figure>
+          <img src="./SpImagen?id=#{ctrlSesion.modelo.imagen.id}"
+               alt="#{ctrlSesion.modelo.id}"/>
+        </figure>
+      </ui:define>
+    </ui:composition>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "nombre": "pasa",
+  "url": "src",
+  "archivos": [
+    {
+      "nombre": "Web Pages",
+      "archivos": [
+        {
+          "nombre": "Web-INF",
+          "archivos": [
+            {
+              "nombre": "beans.xml"
+            },
+            {
+              "nombre": "payara-web.xml"
+            },
+            {
+              "nombre": "web.xml"
+            }
+          ]
+        },
+        {
+          "nombre": "resources",
+          "archivos": [
+            {
+              "nombre": "css",
+              "archivos": [
+                {
+                  "nombre": "estilos.css"
+                }
+              ]
+            },
+            {
+              "nombre": "ezcomp",
+              "archivos": [
+                {
+                  "nombre": "mi-footer.xhtml"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "index.xhtml"
+        },
+        {
+          "nombre": "pasatiempo.xhtml"
+        },
+        {
+          "nombre": "pasatiempoNuevo.xhtml"
+        }
+      ]
+    },
+    {
+      "nombre": "Source Packages",
+      "archivos": [
+        {
+          "nombre": "net.ramptors.pasa",
+          "archivos": [
+            {
+              "nombre": "Config.java"
+            },
+            {
+              "nombre": "CtrlPasatiempo.java"
+            },
+            {
+              "nombre": "CtrlPasatiempoNuevo.java"
+            },
+            {
+              "nombre": "CtrlPasatiempos.java"
+            },
+            {
+              "nombre": "DaoPasatiempo.java"
+            },
+            {
+              "nombre": "Pasatiempo.java"
+            }
+          ]
+        },
+        {
+          "nombre": "net.ramptors.web",
+          "archivos": [
+            {
+              "nombre": "Mensajes.java"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Other Sources",
+      "archivos": [
+        {
+          "nombre": "META-INF",
+          "archivos": [
+            {
+              "nombre": "persistence.xml"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

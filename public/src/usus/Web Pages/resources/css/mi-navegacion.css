@@ -1,0 +1,15 @@
+.mi-navegacion {
+  display: flex;
+  flex-shrink: 0;
+  background-color: var(--color-fondo-navegacion);
+  overflow: auto
+}
+.mi-navegacion * {
+  text-align: center;
+  padding: 0.5em 0.25em;
+  border: none;
+  text-decoration: none;
+  background-color: var(--color-fondo-navegacion);
+  color: var(--color-texto-navegacion);
+  cursor: pointer
+}

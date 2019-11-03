@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                            http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+  <context-param>
+    <param-name>
+      javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+    </param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <session-config>
+    <session-timeout>
+      30
+    </session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>
+  </welcome-file-list>
+  <security-constraint>
+    <display-name>Páginas de Administracion de Usuarios</display-name>
+    <web-resource-collection>
+      <web-resource-name>Administración de Usuarios</web-resource-name>
+      <description>Páginas para administrar usuarios</description>
+      <url-pattern>/usuarios/edicion.xhtml</url-pattern>
+      <url-pattern>/usuarios/index.xhtml</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>
+        Estas páginas son para los administradores de usuarios.
+      </description>
+      <role-name>Administrador</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-constraint>
+    <display-name>Páginas de Invitados</display-name>
+    <web-resource-collection>
+      <web-resource-name>Invitados</web-resource-name>
+      <description>Páginas para invitados</description>
+      <url-pattern>/invitados.xhtml</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>Estas páginas son para los invitado.</description>
+      <role-name>Invitado</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-constraint>
+    <display-name>Páginas para los que Tengan Rol</display-name>
+    <web-resource-collection>
+      <web-resource-name>Páginas de inicio</web-resource-name>
+      <description>Páginas para los que tengan rol asignado.</description>
+      <url-pattern>/sesion.xhtml</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>
+        Estas páginas son para cualquier usuario que tenga asignado un rol.
+      </description>
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+<!--  <security-constraint>
+    <display-name>Login</display-name>
+    <web-resource-collection>
+      <web-resource-name>Inicio de Sesión</web-resource-name>
+      <description>Páginas para autorizar acceso.</description>
+      <url-pattern>/iniciaSesion.xhtml</url-pattern>
+      <url-pattern>/errorIniciandoSesion.xhtml</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <description>
+        Estas páginas se transmiten encriptadas para que no se vea su contenido
+        al transferir datos por la red.
+      </description>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>-->
+  <login-config>
+    <!-- Se usa una forma definida por el usuario para iniciar sesión. -->
+    <auth-method>FORM</auth-method>
+    <!-- Realm en la configuración del servidor. -->
+    <realm-name>bd</realm-name>
+    <form-login-config>
+      <!-- Vista que solicita el usuario y contraseña. -->
+      <form-login-page>/iniciaSesion.xhtml</form-login-page>
+      <!-- Vista que se muestra cuando no se puede iniciar sesión. -->
+      <form-error-page>/errorIniciandoSesion.xhtml</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-role>
+    <description>Administra el sistema.</description>
+    <role-name>Administrador</role-name>
+  </security-role>
+  <security-role>
+    <description>Hace cosas.</description>
+    <role-name>Cliente</role-name>
+  </security-role>
+  <security-role>
+    <description>No hace nada.</description>
+    <role-name>Invitado</role-name>
+  </security-role>
+</web-app>

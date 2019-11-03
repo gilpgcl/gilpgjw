@@ -1,0 +1,22 @@
+{
+  "nombre": "intro",
+  "url": "src",
+  "archivos": [
+    {
+      "nombre": "Web Pages",
+      "archivos": [
+        {
+          "nombre": "Web-INF",
+          "archivos": [
+            {
+              "nombre": "web.xml"
+            }
+          ]
+        },
+        {
+          "nombre": "index.xhtml"
+        }
+      ]
+    }
+  ]
+}

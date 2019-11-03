@@ -1,0 +1,41 @@
+{
+  "nombre": "forma",
+  "url": "src",
+  "archivos": [
+    {
+      "nombre": "Web Pages",
+      "archivos": [
+        {
+          "nombre": "Web-INF",
+          "archivos": [
+            {
+              "nombre": "beans.xml"
+            },
+            {
+              "nombre": "payara-web.xml"
+            },
+            {
+              "nombre": "web.xml"
+            }
+          ]
+        },
+        {
+          "nombre": "index.xhtml"
+        }
+      ]
+    },
+    {
+      "nombre": "Source Packages",
+      "archivos": [
+        {
+          "nombre": "net.ramptors.forma",
+          "archivos": [
+            {
+              "nombre": "CtrlSaludo.java"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "nombre": "usus",
+  "url": "src",
+  "archivos": [
+    {
+      "nombre": "Web Pages",
+      "archivos": [
+        {
+          "nombre": "Web-INF",
+          "archivos": [
+            {
+              "nombre": "plantillas",
+              "archivos": [
+                {
+                  "nombre": "plantilla.xhtml"
+                }
+              ]
+            },
+            {
+              "nombre": "beans.xml"
+            },
+            {
+              "nombre": "payara-web.xml"
+            },
+            {
+              "nombre": "web.xml"
+            }
+          ]
+        },
+        {
+          "nombre": "resources",
+          "archivos": [
+            {
+              "nombre": "css",
+              "archivos": [
+                {
+                  "nombre": "colores.css"
+                },
+                {
+                  "nombre": "estilos.css"
+                },
+                {
+                  "nombre": "mi-footer.css"
+                },
+                {
+                  "nombre": "mi-navegacion.css"
+                }
+              ]
+            },
+            {
+              "nombre": "ezcomp",
+              "archivos": [
+                {
+                  "nombre": "campo.xhtml"
+                },
+                {
+                  "nombre": "herramientas-detalle.xhtml"
+                },
+                {
+                  "nombre": "herramientas-maestras.xhtml"
+                },
+                {
+                  "nombre": "mensajes.xhtml"
+                },
+                {
+                  "nombre": "mi-footer.xhtml"
+                },
+                {
+                  "nombre": "mi-navegacion.xhtml"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "usuarios",
+          "archivos": [
+            {
+              "nombre": "edicion.xhtml"
+            },
+            {
+              "nombre": "index.xhtml"
+            }
+          ]
+        },
+        {
+          "nombre": "errorIniciandoSesion.xhtml"
+        },
+        {
+          "nombre": "index.xhtml"
+        },
+        {
+          "nombre": "iniciaSesion.xhtml"
+        },
+        {
+          "nombre": "invitados.xhtml"
+        },
+        {
+          "nombre": "sesion.xhtml"
+        }
+      ]
+    },
+    {
+      "nombre": "Source Packages",
+      "archivos": [
+        {
+          "nombre": "net.ramptors.usus",
+          "archivos": [
+            {
+              "nombre": "Config.java"
+            },
+            {
+              "nombre": "ConvertidorDePasatiempo.java"
+            },
+            {
+              "nombre": "ConvertidorDeRol.java"
+            },
+            {
+              "nombre": "CtrlPasatiempos.java"
+            },
+            {
+              "nombre": "CtrlRoles.java"
+            },
+            {
+              "nombre": "CtrlSesion.java"
+            },
+            {
+              "nombre": "CtrlUsuario.java"
+            },
+            {
+              "nombre": "CtrlUsuarios.java"
+            },
+            {
+              "nombre": "Pasatiempo.java"
+            },
+            {
+              "nombre": "Rol.java"
+            },
+            {
+              "nombre": "Usuario.java"
+            }
+          ]
+        },
+        {
+          "nombre": "net.ramptors.web",
+          "archivos": [
+            {
+              "nombre": "ConvertidorDeEntidad.java"
+            },
+            {
+              "nombre": "CtrlEdicion.java"
+            },
+            {
+              "nombre": "CtrlFiltro.java"
+            },
+            {
+              "nombre": "CtrlListado.java"
+            },
+            {
+              "nombre": "CtrlListadoBase.java"
+            },
+            {
+              "nombre": "CtrlSalir.java"
+            },
+            {
+              "nombre": "Dao.java"
+            },
+            {
+              "nombre": "Encriptador.java"
+            },
+            {
+              "nombre": "Entidad.java"
+            },
+            {
+              "nombre": "Error.java"
+            },
+            {
+              "nombre": "Imagen.java"
+            },
+            {
+              "nombre": "Mensajes.java"
+            },
+            {
+              "nombre": "Parts.java"
+            },
+            {
+              "nombre": "ReemplazoDeMensajes.java"
+            },
+            {
+              "nombre": "SpImagen.java"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Other Sources",
+      "archivos": [
+        {
+          "nombre": "META-INF",
+          "archivos": [
+            {
+              "nombre": "persistence.xml"
+            }
+          ]
+        },
+        {
+          "nombre": "ValidationMessages.properties"
+        }
+      ]
+    }
+  ]
+}
