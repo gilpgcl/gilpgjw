@@ -81,7 +81,7 @@ class MiDiapo extends HTMLElement {
     if (this.nav) {
       base.addEventListener("click", () => this.nav.hidden = false);
     }
-    window.addEventListener("resize", this.resize.bind(this));
+    addEventListener("resize", this.resize.bind(this));
     this.muestra();
     this.resize();
     document.addEventListener("keydown", evt => {
@@ -102,9 +102,9 @@ class MiDiapo extends HTMLElement {
           this.siguiente();
       }
     });
-    document.addEventListener("swipeizquierdo", this.avanza.bind(this));
-    document.addEventListener("swipederecho", this.retrocede.bind(this));
-    document.addEventListener("swipearriba", this.siguiente.bind(this));
+    addEventListener("swipeizquierdo", this.avanza.bind(this));
+    addEventListener("swipederecho", this.retrocede.bind(this));
+    addEventListener("swipearriba", this.siguiente.bind(this));
   }
   cierra() {
     this.nav.hidden = true;

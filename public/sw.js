@@ -1,4 +1,4 @@
-const CACHE = "gilpgjw-140";
+const CACHE = "gilpgjw-141";
 const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
