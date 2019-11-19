@@ -1,4 +1,4 @@
-const CACHE = "gilpgjw-152";
+const CACHE = "gilpgjw-159";
 const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
@@ -19,7 +19,6 @@ const ARCHIVOS = [
   "css/MaterialIcons-Regular.woff",
   "css/MaterialIcons-Regular.woff2",
   "img/icono.png",
-  "lib/clipboard.min.js",
   "lib/databind.js",
   "lib/embellece.js",
   "lib/htmlUtil.js",

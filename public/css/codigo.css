@@ -1,5 +1,14 @@
-code {
+pre {
   font-size: 16px;
+}
+
+pre.lineas {
+  text-align: end;
+}
+
+.clip {
+  position: absolute;
+  left: -9999px;
 }
 
 .comentario1,
@@ -13,17 +22,21 @@ code {
   color: rgb(172, 255, 255);
 }
 
-.string1, .string2 {
+.string1,
+.string2 {
   color: rgb(255, 255, 159);
 }
 
-.entity1, .entity2, .entity3 {
+.entity1,
+.entity2,
+.entity3 {
   font-style: bold;
 }
 
 .reservada {
   font-weight: bold;
 }
+
 /* 
 .identificador {
   color: #a5a6cf;

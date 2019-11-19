@@ -138,9 +138,38 @@ customElements.define("mi-proyecto", class extends HTMLElement {
       const respuesta = await fetch(archivo.url);
       validaResponse(respuesta);
       const texto = await respuesta.text();
+      const líneas = this.generaLíneas(texto);
       this.main.innerHTML = /* html */
-        `<pre><code>${embellece(texto)}</code></pre>`;
+        `<table>
+          <td><pre class="lineas">${líneas}</pre></td>
+          <td><pre><code>${embellece(texto)}</code></pre></td>
+        </table>
+        <p>
+          <textarea class="clip"></textarea>
+          <button title="Copiar al portapapeles.">
+          <i class="material-icons">content_copy</i>
+          </button>
+        </p>`;
+      const clip = this.main.querySelector("textarea");
+      this.main.querySelector("button").addEventListener("click", () => {
+        clip.value = texto;
+        clip.select();
+        document.execCommand("copy");
+      })
     });
+  }
+  /**
+   * @param {string} s */
+  generaLíneas(s) {
+    const total = s.split("\n").length;
+    let resultado = "";
+    if (total > 0) {
+      resultado = "1";
+    }
+    for (let i = 2; i <= total; i++) {
+      resultado += "<br>" + i;
+    }
+    return resultado;
   }
   muestraPortada() {
     document.title = this.dataset.titulo;
