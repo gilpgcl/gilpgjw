@@ -1,4 +1,4 @@
-const CACHE = "gilpgjw-141";
+const CACHE = "gilpgjw-152";
 const CACHE_EXTRA = "gilpgjwExtra";
 // Archivos requeridos para que la aplicación funcione fuera de línea.
 const ARCHIVOS = [
@@ -8,6 +8,7 @@ const ARCHIVOS = [
   "cmp/mi-nav.js",
   "cmp/mi-proyecto.js",
   "css/codepoints",
+  "css/codigo.css",
   "css/colores.css",
   "css/estilos.css",
   "css/material-icons.css",
@@ -19,9 +20,11 @@ const ARCHIVOS = [
   "css/MaterialIcons-Regular.woff2",
   "img/icono.png",
   "lib/clipboard.min.js",
+  "lib/databind.js",
+  "lib/embellece.js",
+  "lib/htmlUtil.js",
+  "lib/moo.js",
   "lib/polycustom.js",
-  "lib/prism.css",
-  "lib/prism.js",
   "lib/registraServiceWorker.js",
   "lib/util.js",
   "src/forma/Source Packages/net.ramptors.forma/CtrlSaludo.java",

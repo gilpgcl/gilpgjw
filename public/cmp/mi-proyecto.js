@@ -1,6 +1,7 @@
 import { MiFooter as _ } from "./mi-footer.js";
 import { cod } from "../lib/htmlUtil.js";
 import { catchas, validaResponse } from "../lib/util.js";
+import { embellece } from "../lib/embellece.js";
 
 /** Nodo del descriptor de proyecto.
  * @typedef {Object} Nodo
@@ -137,15 +138,8 @@ customElements.define("mi-proyecto", class extends HTMLElement {
       const respuesta = await fetch(archivo.url);
       validaResponse(respuesta);
       const texto = await respuesta.text();
-      while (this.main.firstChild) {
-        this.main.removeChild(this.main.firstChild);
-      }
-      const pre = this.main.appendChild(document.createElement("pre"));
-      const code = pre.appendChild(document.createElement("code"));
-      code.className = "language-" + archivo.tipo;
-      code.textContent = texto;
-      // @ts-ignore
-      Prism.highlightAll();
+      this.main.innerHTML = /* html */
+        `<pre><code>${embellece(texto)}</code></pre>`;
     });
   }
   muestraPortada() {
